@@ -4,6 +4,7 @@ Turn based RPG, created by Matt Regan
 ## Engineers
 - [Isaiah Mann](http://isaiahmann.com/) (Lead)
 - (engineers: add your name here)
+- Test Name
 
 ## Spec
 - Unity: **5.5.0f3**
