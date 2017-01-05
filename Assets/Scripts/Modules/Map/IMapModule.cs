@@ -5,4 +5,10 @@
 
 public interface IMapModule {
 
+	bool CoordinateIsInBounds (int x, int y);
+
+	IMapTile GetTile (int x, int y);
+
+	TerrainType GetTerrainTypeOfTile (int x, int y);
+
 }
