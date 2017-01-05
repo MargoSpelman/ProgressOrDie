@@ -11,7 +11,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class AudioController : Controller, IAudioController {
+public class AudioController : Controller, IAudioController, IAudioModule {
 	public bool isAudioListener = true;
 
 	// For controlling music
