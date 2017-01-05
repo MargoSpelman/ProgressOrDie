@@ -4,7 +4,6 @@
  */
 
 public enum  TerrainType {
-	Standard,
 	Pit,
 	Cliff,
 	Forest,
