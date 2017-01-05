@@ -7,10 +7,19 @@ using UnityEngine;
 using System.Collections;
 
 public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable {
+	[SerializeField]
+	string id;
+
 	IEnumerator moveCoroutine;
 	public delegate void MonoAction();
 	public delegate void MonoActionf(float value);
 
+	public bool HasId {
+		get {
+			return ! string.IsNullOrEmpty(GetId());
+		}
+	}
+		
 	void Awake () {
 		SetReferences();
 	}
@@ -24,6 +33,10 @@ public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable 
 		CleanupReferences();
 		UnusbscribeEvents();
 		StopAllCoroutines();
+	}
+		
+	public virtual string GetId () {
+		return id;
 	}
 
 	// Value should only be null if you're setting a trigger

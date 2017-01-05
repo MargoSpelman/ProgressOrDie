@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class UIElement : MonoBehaviour {
+public class UIElement : MonoBehaviourExtended {
 	Image image;
 	Text text;
 
@@ -25,13 +25,21 @@ public class UIElement : MonoBehaviour {
 	}
 
 
-	void Awake () {
-		AssignReferences();
-	}
-
-	void AssignReferences () {
+	protected override void SetReferences () {
 		image = GetComponentInChildren<Image>();
 		text = GetComponentInChildren<Text>();
+	}
+
+	protected override void FetchReferences () {
+		// NOTHING
+	}
+
+	protected override void CleanupReferences () {
+		// NOTHING
+	}
+
+	protected override void HandleNamedEvent (string eventName) {
+		// NOTHING
 	}
 
 	public void Show () {

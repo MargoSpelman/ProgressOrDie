@@ -4,5 +4,13 @@
  */
 
 public interface IUIModule {
-	
+
+	UIElement Get(string id);
+
+	void Show(UIElement element);
+	void Hide(UIElement element);
+
+	void AddListener(UIElement element, UIEventListener listener);
+	void AddHandler(UIElement element, UIEventHandler handler);
+
 }
