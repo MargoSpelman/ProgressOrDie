@@ -7,13 +7,6 @@ using UnityEngine;
 
 public abstract class Module : MonoBehaviourExtended {
 
-	[SerializeField]
-	protected string id;
-
-	public virtual string GetId () {
-		return id;
-	}
-
 	protected override void SetReferences () {
 		// Nothing
 	}
@@ -29,4 +22,5 @@ public abstract class Module : MonoBehaviourExtended {
 	protected override void CleanupReferences () {
 		// Nothing
 	}
+
 }
