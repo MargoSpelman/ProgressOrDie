@@ -6,3 +6,9 @@
 public interface IEventModule {
 
 }
+
+public interface IEvent {
+
+	string GetId();
+
+}
