@@ -5,6 +5,11 @@
 
 public interface IMapTile {
 
+	bool IsOccupiedByUnit();
+
+	int GetX();
+	int GetY();
+
 	TerrainType GetTerrain();
 
 }
