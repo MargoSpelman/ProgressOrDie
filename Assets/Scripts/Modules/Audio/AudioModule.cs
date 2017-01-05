@@ -231,16 +231,16 @@ public class AudioModule : Module, IAudioModule {
 	// Uses C#'s delegate system
 	protected override void SubscribeEvents () {
 		base.SubscribeEvents();
-		EventController.OnAudioEvent += HandleAudioEvent;
+		EventModule.Subscribe(HandleAudioEvent);
 	}
 
 	protected void UnsubscribeEvents () {
 		base.UnusbscribeEvents();
-		EventController.OnAudioEvent -= HandleAudioEvent;
+		EventModule.Unsubscribe(HandleAudioEvent);
 	}
 
 	void playMainMusic () {
-		EventController.Event(mainMusicEventName);
+		EventModule.Event(mainMusicEventName);
 	}
 
 	void HandleAudioEvent (AudioActionType actionType, AudioType audioType) {
