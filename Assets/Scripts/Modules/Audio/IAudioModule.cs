@@ -5,4 +5,13 @@
 
 public interface IAudioModule {
 
+	void Play(IAudioFile file);
+	void Stop(IAudioFile file);
+
+	bool TryLoadAudioClip(IAudioFile file);
+
+	AudioFile ParseFile(string jsonText);
+
+	IEvent ParseEvent(string jsonText);
+
 }

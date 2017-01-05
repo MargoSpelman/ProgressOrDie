@@ -20,6 +20,7 @@ public interface IAudioFile {
 		get;
 	}
 		
+	bool IsLooping();
 	bool HasEvent (string eventName);
 	bool HasEndEvent (string eventName);
 	float GetVolume ();

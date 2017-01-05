@@ -39,6 +39,10 @@ public class AudioFile : AudioData, IAudioFile {
 		}
 	}
 		
+	public bool IsLooping () {
+		return Loop;
+	}
+
 	public bool Loop;
 	public int Volume;
 
