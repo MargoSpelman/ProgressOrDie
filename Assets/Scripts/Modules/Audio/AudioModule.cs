@@ -11,7 +11,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class AudioController : Controller, IAudioController {
+public class AudioModule : Module, IAudioModule {
 	public bool isAudioListener = true;
 
 	// For controlling music
@@ -21,7 +21,7 @@ public class AudioController : Controller, IAudioController {
 	string mainMusicEventName;
 
 	// Singleton implementation
-	public static AudioController Instance;
+	public static AudioModule Instance;
 
 	const string path = "Audio/AudioList";
 	AudioList fileList;
@@ -55,7 +55,7 @@ public class AudioController : Controller, IAudioController {
 	}
 
 	protected override void FetchReferences () {
-
+		// NOTHING
 	}
 
 	protected override void CleanupReferences () {
@@ -400,15 +400,4 @@ public class AudioController : Controller, IAudioController {
 		}
 	}
 
-	#region JSON Deserialization
-
-	public void DeserializeFromJSON (string jsonText) {
-		throw new System.NotImplementedException();
-	}
-
-	public void DeserializeFromJSONAtPath (string jsonPath) {
-		throw new System.NotImplementedException();
-	}
-
-	#endregion
 }

@@ -5,13 +5,9 @@
 
 public interface IAudioModule {
 
-	void Play(IAudioFile file);
-	void Stop(IAudioFile file);
-
-	bool TryLoadAudioClip(IAudioFile file);
-
-	AudioFile ParseFile(string jsonText);
-
-	IEvent ParseEvent(string jsonText);
+	void Play(AudioFile file);
+	void Stop(AudioFile file);
+	void ToggleFXMute();
+	void ToggleMusicMute();
 
 }

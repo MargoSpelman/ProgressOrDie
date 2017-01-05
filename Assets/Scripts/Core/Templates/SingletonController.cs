@@ -2,18 +2,23 @@ using UnityEngine;
 using System.Collections;
 using System.Reflection;
 
-public class SingletonController<T> : Controller where T : class {
+public class SingletonController<T> : MonoBehaviourExtended where T : class {
 	public static T Instance;
 	protected bool dontDestroyOnLoad = false;
 	protected override void SetReferences () {
-		if (tryInit(ref Instance, this as T, gameObject, dontDestroyOnLoad)) {
-			base.SetReferences ();
-		}
+		tryInit(ref Instance, this as T, gameObject, dontDestroyOnLoad);
+	}
+		
+	protected override void FetchReferences () {
+		// NOTHING
 	}
 
 	protected override void CleanupReferences () {
-		base.CleanupReferences ();
 		tryCleanupSingleton(ref Instance, this as T);
+	}
+
+	protected override void HandleNamedEvent (string eventName) {
+		// NOTHING
 	}
 
 	bool tryInit (ref T singleton, T instance, GameObject gameObject, bool dontDestroyOnLoad = false) {

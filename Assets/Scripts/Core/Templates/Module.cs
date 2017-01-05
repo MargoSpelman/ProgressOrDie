@@ -5,7 +5,15 @@
 
 using UnityEngine;
 
-public abstract class Controller : MonoBehaviourExtended {
+public abstract class Module : MonoBehaviourExtended {
+
+	[SerializeField]
+	protected string id;
+
+	public virtual string GetId () {
+		return id;
+	}
+
 	protected override void SetReferences () {
 		// Nothing
 	}
