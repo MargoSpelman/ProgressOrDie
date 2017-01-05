@@ -13,11 +13,11 @@ public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable 
 
 	void Awake () {
 		SetReferences();
-		SubscribeEvents();
 	}
 
 	void Start () {
 		FetchReferences();
+		SubscribeEvents();
 	}
 
 	void OnDestroy () {
@@ -66,11 +66,11 @@ public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable 
 	}
 
 	protected virtual void SubscribeEvents () {
-		EventController.OnNamedEvent += HandleNamedEvent;
+		EventModule.Subscribe(HandleNamedEvent);
 	}
 
 	protected virtual void UnusbscribeEvents () {
-		EventController.OnNamedEvent -= HandleNamedEvent;
+		EventModule.Unsubscribe(HandleNamedEvent);
 	}
 
 	protected abstract void SetReferences ();

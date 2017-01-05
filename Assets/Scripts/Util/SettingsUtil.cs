@@ -18,7 +18,7 @@ public static class SettingsUtil {
 			muted
 		);
 
-		EventController.Event (
+		EventModule.Event (
 			AudioUtil.MuteActionFromBool(muted),
 			AudioType.Music
 		);
@@ -33,7 +33,7 @@ public static class SettingsUtil {
 			fxMuteSettingsKey,
 			muted
 		);
-		EventController.Event (
+		EventModule.Event (
 			AudioUtil.MuteActionFromBool(muted),
 			AudioType.FX
 		);
@@ -48,7 +48,7 @@ public static class SettingsUtil {
 			voMuteSettingsKey,
 			muted
 		);
-		EventController.Event (
+		EventModule.Event (
 			AudioUtil.MuteActionFromBool(muted),
 			AudioType.VO
 		);

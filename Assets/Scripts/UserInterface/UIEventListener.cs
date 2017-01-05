@@ -4,34 +4,28 @@
  */
 
 using UnityEngine;
-using System.Collections;
 
-public class UIEventListener : MonoBehaviour {
+public class UIEventListener : MonoBehaviourExtended {
 	[SerializeField]
 	UIEventHandler[] handlers;
 	UIElement element;
 
-	void Awake () {
+	protected override void SetReferences () {
 		element = GetComponent<UIElement>();
 		if (!element) {
 			element = gameObject.AddComponent<UIElement>();
 		}
-		SubscribeEvents();
 	}
 
-	void OnDestroy () {
-		UnsubscribeEvents();
+	protected override void FetchReferences () {
+		// NOTHING
 	}
 
-	void SubscribeEvents () {
-		EventController.OnNamedEvent += HandleNamedEvent;
+	protected override void CleanupReferences () {
+		// NOTHING
 	}
 
-	void UnsubscribeEvents () {
-		EventController.OnNamedEvent -= HandleNamedEvent;
-	}
-
-	void HandleNamedEvent (string eventName) {
+	protected override void HandleNamedEvent (string eventName) {
 		foreach (UIEventHandler handler in handlers) {
 			if (handler.RespondsToTrigger(eventName)) {
 				handler.Execute(element);

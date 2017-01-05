@@ -5,10 +5,16 @@
 
 public interface IEventModule {
 
-}
+	void InstanceSubscribe (EventModule.NamedEventAction action);
+	void InstanceSubscribe (EventModule.NamedFloatAction action);
+	void InstanceSubscribe (EventModule.AudioEventAction action);
 
-public interface IEvent {
+	void InstanceUnsubscribe (EventModule.NamedEventAction action);
+	void InstanceUnsubscribe (EventModule.NamedFloatAction action);
+	void InstanceUnsubscribe (EventModule.AudioEventAction action);
 
-	string GetId();
+	void InstanceEvent (string eventName);
+	void InstanceEvent (string valueKey, float value);
+	void InstanceEvent(AudioActionType actionType, AudioType audioType);
 
 }
