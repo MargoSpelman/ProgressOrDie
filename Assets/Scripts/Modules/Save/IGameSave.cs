@@ -10,4 +10,6 @@ public interface IGameSave {
 
 	IPlayerCharacter GetPlayer();
 
+	IGameSession GetMostRecentSession();
+
 }

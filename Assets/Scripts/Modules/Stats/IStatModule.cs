@@ -5,4 +5,10 @@
 
 public interface IStatModule {
 
+	IPlayerLegend GetLegend(string legendId);
+
+	bool PlayerEarnedLegend(ISaveModule saveModule);
+	IPlayerLegend GetLegendEarned(ISaveModule saveModule);
+	void GivePlayerLegend (ISaveModule saveModule);
+
 }

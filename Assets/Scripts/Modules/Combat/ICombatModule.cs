@@ -16,4 +16,5 @@ public interface ICombatModule {
 	void FleeAttempt (IStatModule playerstats, IUnit unit);
 
 	void KillUnit (IUnit unit);
+
 }
