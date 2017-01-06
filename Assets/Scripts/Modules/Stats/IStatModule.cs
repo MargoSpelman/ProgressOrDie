@@ -5,5 +5,4 @@
 
 public interface IStatModule {
 
-	void AssignTitle ();
 }
