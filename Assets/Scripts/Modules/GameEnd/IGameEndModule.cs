@@ -5,6 +5,10 @@
 
 public interface IGameEndModule {
 
-	void ProcessGameEnd(IPlayerCharacter player, GameEndType endType);
+	void ProcessGameEnd(IGameSave gameProgress, GameEndType endType);
+
+	bool PlayerEarnedLegend(IGameSave gameProgress, GameEndType endType);
+	IPlayerLegend GetLegendEarned(IGameSave gameProgress, GameEndType endType);
+	void GivePlayerLegend (IGameSave gameprogress, GameEndType endType);
 
 }
