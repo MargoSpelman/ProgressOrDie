@@ -5,7 +5,7 @@
 
 public interface ICombatModule {
 
-	bool IsTargetInRange (IUnit unit);
+	bool IsTargetInRange (IUnit attacker, IUnit target);
 
 	bool IsTargetAdjacent (IUnit unit);
 
@@ -15,5 +15,5 @@ public interface ICombatModule {
 
 	void FleeAttempt (IStatModule playerstats, IUnit unit);
 
-	void KillMonster (IUnit unit);
+	void KillUnit (IUnit unit);
 }
