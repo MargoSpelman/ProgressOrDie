@@ -5,7 +5,7 @@
 
 public interface ITurnModule { 
 
-	void SwitchToMonTurn();
+	void SwitchToMnsterTurn();
 
 	bool CheckMonsterAttack(IUnit monster, IUnit player);
 
