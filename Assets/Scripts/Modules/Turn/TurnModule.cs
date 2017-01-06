@@ -1,6 +1,6 @@
 ﻿/*
  * Authors: Xijie Guo
- * Description: An interface to handle the turn logic
+ * Description: An class to handle the turn logic
  */
 
 public class TurnModule : Module {

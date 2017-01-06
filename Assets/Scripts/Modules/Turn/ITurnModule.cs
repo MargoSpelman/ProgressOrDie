@@ -1,8 +1,13 @@
-﻿public interface ITurnModule { 
+﻿/*
+ * Authors: Xijie Guo
+ * Description: An interface to handle the turn logic
+ */
+
+public interface ITurnModule { 
 
 	void SwitchToMnstrTurn();
 
-	bool CheckIfMnstrAttacked(IUnit monster);
+	bool CheckToSwapToNextMnsTurn(IUnit monster);
 
 	bool CheckForLastMnstr(IUnit monster);
 
