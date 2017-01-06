@@ -3,7 +3,7 @@
  * Description: An interface to handle the turn logic
  */
 
-public class TurnModule : Module, ITurnModule {
+public class TurnModule : Module {
 	public void SwitchToMonTurn() {
 		throw new System.NotImplementedException ();
 	}

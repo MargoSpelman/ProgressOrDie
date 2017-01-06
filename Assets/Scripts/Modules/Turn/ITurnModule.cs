@@ -1,17 +1,12 @@
-﻿/*
- * Authors: Xijie Guo
- * Description: An interface to handle the turn logic
- */
+﻿public interface ITurnModule { 
 
-public interface ITurnModule { 
+	void SwitchToMnstrTurn();
 
-	void SwitchToMonTurn();
+	bool CheckIfMnstrAttacked(IUnit monster);
 
-	bool CheckMonsterAttack(IUnit monster, IUnit player);
-
-	bool CheckForLastMon(IUnit monster, IUnit player);
+	bool CheckForLastMnstr(IUnit monster);
 
 	void SwitchToPlayerTurn();
 
-	int updateMonster(IUnit monster, int numMonster);
+	int SwapToNextMnsTurn(IUnit monster, int numMonster);
 }
