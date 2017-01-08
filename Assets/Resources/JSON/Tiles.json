@@ -1,0 +1,224 @@
+{
+  "Tiles" : [
+    {
+      "TilenName" : "ShortGrass",
+      "Speed" : 1,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "SGrass 2s VR",
+      "Passive" : "Vulnerable to Ranged"
+    },
+    {
+      "TilenName" : "TallGrass",
+      "Speed" : 3,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "TGrass 3s SB",
+      "Passive" : "Strength Boost"
+    },
+    {
+      "TilenName" : "Rocky",
+      "Speed" : 4,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Rocky 4s SR",
+      "Passive" : "Skill Reduction"
+    },
+    {
+      "TilenName" : "Mud ",
+      "Speed" : 3,
+      "Skill" : 8,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Mud 3s/8Sk VM",
+      "Passive" : "Vulnerable to Melee"
+    },
+    {
+      "TilenName" : "Marsh",
+      "Speed" : 4,
+      "Skill" : 0,
+      "Constitution" : 8,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Marsh 4s/8C RM",
+      "Passive" : "Resistant to Melee"
+    },
+    {
+      "TilenName" : "Sand",
+      "Speed" : 4,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Sand 4s N/A",
+      "Passive" : "N/A"
+    },
+    {
+      "TilenName" : "Shallow Water",
+      "Speed" : 5,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : "",
+      "PlaceholderLabel" : "sWater 5s RR",
+      "Passive" : "Resistant to Ranged"
+    },
+    {
+      "TilenName" : "DeepWater,Calm",
+      "Speed" : 5,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 8,
+      "Magic" : 0,
+      "PlaceholderLabel" : "dWater(C) 5s/8St OB",
+      "Passive" : "Obstructed"
+    },
+    {
+      "TilenName" : "DeepWater,Harsh",
+      "Speed" : -1,
+      "Skill" : "",
+      "Constitution" : "",
+      "Strength" : "",
+      "Magic" : "",
+      "PlaceholderLabel" : "dWater(H) IM N/A",
+      "Passive" : "N/A"
+    },
+    {
+      "TilenName" : "SlopeRock,Scramble",
+      "Speed" : 3,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 6,
+      "Magic" : 0,
+      "PlaceholderLabel" : "SlRock 3s/6ST OB RB",
+      "Passive" : "Obstructed/ Ranged Boost"
+    },
+    {
+      "TilenName" : "SteepRock,Scramble",
+      "Speed" : 5,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "StRock 5s/8ST OB SR",
+      "Passive" : "Obstructed/ Skill Reduction"
+    },
+    {
+      "TilenName" : "SheerCliff",
+      "Speed" : -1,
+      "Skill" : "",
+      "Constitution" : "",
+      "Strength" : "",
+      "Magic" : "",
+      "PlaceholderLabel" : "ShCliff IM N/A",
+      "Passive" : "N/A"
+    },
+    {
+      "TilenName" : "ForestPath",
+      "Speed" : 3,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Forestp 3s RR",
+      "Passive" : "Resistant to Ranged"
+    },
+    {
+      "TilenName" : "Thicket",
+      "Speed" : 4,
+      "Skill" : 0,
+      "Constitution" : 10,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Thicket 4s/10CON VR",
+      "Passive" : "Vulnerable to Ranged"
+    },
+    {
+      "TilenName" : "DeepForest",
+      "Speed" : 4,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 10,
+      "PlaceholderLabel" : "Forestd 4s/ 10SK OB",
+      "Passive" : "Obstructed"
+    },
+    {
+      "TilenName" : "EnchantedForest",
+      "Speed" : 4,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 10,
+      "PlaceholderLabel" : "EnForest 4s/10MA MB",
+      "Passive" : "Magic Boost"
+    },
+    {
+      "TilenName" : "EnchantedPond",
+      "Speed" : 3,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 8,
+      "PlaceholderLabel" : "EnPond 3s/8MA MR",
+      "Passive" : "Magic Resistance"
+    },
+    {
+      "TilenName" : "EnchantedMeadow",
+      "Speed" : 2,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 6,
+      "PlaceholderLabel" : "EnMeadow 2s/6MA MB",
+      "Passive" : "Magic Boost"
+    },
+    {
+      "TilenName" : "Ruined Village",
+      "Speed" : 3,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 10,
+      "PlaceholderLabel" : "Ruin 3s/10MA SB",
+      "Passive" : "Strength Boost"
+    },
+    {
+      "TilenName" : "MineShaft",
+      "Speed" : 3,
+      "Skill" : 6,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "Mineshaft 3s/6SK OB",
+      "Passive" : "Obstructed"
+    },
+    {
+      "TilenName" : "Unholy Ground",
+      "Speed" : 2,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "UGround 2s PI",
+      "Passive" : "Player Impassable"
+    },
+    {
+      "TilenName" : "Concecrated Ground",
+      "Speed" : 2,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "CGround 2s MI",
+      "Passive" : "Monster Impassable"
+    }
+  ]
+}

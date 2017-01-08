@@ -7,5 +7,22 @@ using UnityEngine;
 
 public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
-	Module[] modules;
+	ParserModule parser;
+
+	[SerializeField]
+	AudioModule sound;
+
+	[SerializeField]
+	EventModule events;
+
+	EnemyData enemyData;
+	TileData tileData;
+
+	protected override void SetReferences ()
+	{
+		base.SetReferences ();
+		enemyData = parser.ParseFromResources<EnemyData>("JSON/Enemies");
+		tileData = parser.ParseFromResources<TileData>("JSON/Tiles");
+	}
+		
 }
