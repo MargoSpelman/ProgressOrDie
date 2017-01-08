@@ -9,7 +9,11 @@ public interface IMapTile {
 
 	int GetX();
 	int GetY();
+	MapLocation GetLocation();
 
-	TerrainType GetTerrain();
+	TileType GetTileType();
+
+	void PlaceUnit(IUnit unit);
+	void RemoveUnit();
 
 }
