@@ -15,14 +15,17 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	EventModule events;
 
+	[SerializeField]
+	SpriteModule sprites;
+
 	EnemyData enemyData;
 	TileData tileData;
 
 	protected override void SetReferences ()
 	{
 		base.SetReferences ();
-		enemyData = parser.ParseFromResources<EnemyData>("JSON/Enemies");
-		tileData = parser.ParseFromResources<TileData>("JSON/Tiles");
+		enemyData = parser.ParseJSONFromResources<EnemyData>("Enemies");
+		tileData = parser.ParseJSONFromResources<TileData>("Tiles");
 	}
 		
 }

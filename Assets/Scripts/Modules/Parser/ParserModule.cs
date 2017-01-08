@@ -7,12 +7,12 @@ using UnityEngine;
 
 public class ParserModule : Module, IParserModule {
 
-	public T ParseFromResources<T> (string path) {
-		string json = getTextAssetInResources(path).text;
-		return Parse<T>(json);
+	public T ParseJSONFromResources<T> (string fileName) {
+		string json = getTextAssetInResources(jsonPath(fileName)).text;
+		return ParseJSON<T>(json);
 	}
 
-	public T Parse<T> (string json) {
+	public T ParseJSON<T> (string json) {
 		return JsonUtility.FromJson<T>(json);
 	}
 

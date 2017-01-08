@@ -5,7 +5,7 @@
 
 public interface IParserModule {
 
-	T ParseFromResources<T> (string pathInResources);
-	T Parse<T> (string json);
+	T ParseJSONFromResources<T> (string fileName);
+	T ParseJSON<T> (string json);
 
 }
