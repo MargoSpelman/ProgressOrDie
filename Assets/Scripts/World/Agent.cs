@@ -106,7 +106,6 @@ public abstract class Agent : MobileObjectBehaviour {
 			MapLocation newLoc = currentLoc.Translate(deltaX, deltaY);
 			if (map.CoordinateIsInBounds(newLoc)) {
 				int agilityCost = map.TravelTo(this, newLoc);
-				Debug.Log(agilityCost);
 				if (trySpendAgility(agilityCost)) {
 					return true;
 				} else {
