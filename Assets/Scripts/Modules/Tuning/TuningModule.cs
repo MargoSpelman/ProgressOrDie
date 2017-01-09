@@ -4,8 +4,6 @@
  * Usage: [no notes]
  */
 
-using UnityEngine;
-
 public class TuningModule : Module
 {
 	public int MaxRange {
@@ -74,18 +72,6 @@ public class TuningModule : Module
 		this.data = data;
 	}
 
-	public int GetMeleeDamage (IUnit unit) {
-		return unit.GetStrength() * DamagePerStrengthPoint;
-	}
-
-	public int GetMagicDamage (IUnit unit) {
-		return unit.GetMagic() * DamagePerMagicPoint;
-	}
-
-	public bool CriticalHit (IUnit unit) {
-		float critChance = CriticalHitRatePerSkillPoint * unit.GetSkill();
-		return Random.Range(0.0f, 1.0f) < critChance;
-	}
 }
 
 [System.Serializable]
