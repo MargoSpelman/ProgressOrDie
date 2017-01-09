@@ -12,8 +12,8 @@ public class PlayerCharacter : Unit, IPlayerCharacter
 	int strength;
 	int skill;
 
-	public PlayerCharacter(MapLocation location, Map map) : 
-	base (location, map) {
+	public PlayerCharacter(UnitModule parent, MapLocation location, Map map) : 
+	base (parent, location, map) {
 		setStatsToDefault();
 	}
 

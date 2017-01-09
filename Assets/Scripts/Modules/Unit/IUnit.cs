@@ -22,8 +22,8 @@ public interface IUnit {
 	bool CanMeleeAttack (IUnit unit);
 	bool CanMagicAttack (IUnit unit);
 
+	void Damage (int damage);
 	void MoveTo (IMapTile tile);
-	void Attack (IUnit unit);
 	void Attack(IUnit unit, AttackType attack);
 	void MeleeAttack(IUnit unit);
 	void MagicAttack(IUnit unit);

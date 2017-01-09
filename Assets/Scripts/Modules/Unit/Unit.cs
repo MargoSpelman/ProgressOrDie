@@ -6,6 +6,8 @@
 
 public abstract class Unit
 {
+	protected UnitModule parentModule;
+
 	public bool HasAgentLink {
 		get {
 			return agent != null;
@@ -13,6 +15,13 @@ public abstract class Unit
 	}
 
 	protected Agent agent;
+	protected int remainingHealth {get; private set;}
+
+	public bool IsDead {
+		get {
+			return remainingHealth <= 0;
+		}
+	}
 
 	public void LinkToAgent (Agent agent) {
 		this.agent = agent;
@@ -20,6 +29,12 @@ public abstract class Unit
 
 	public void UnlinkFromAge () {
 		this.agent = null;
+	}
+
+	int getMaxHealth {
+		get {
+			return (int) (parentModule.BulkToHPRatio * (float) GetConstitution()); 
+		}
 	}
 
 	public abstract int GetSpeed();
@@ -43,9 +58,14 @@ public abstract class Unit
 	public Map Map{get; private set;}
 	public MapLocation StartingLocation {get; private set;}
 
-	public Unit(MapLocation location, Map map) {
+	public Unit(UnitModule parent, MapLocation location, Map map) {
+		this.parentModule = parent;
 		this.StartingLocation = location;
 		this.Map = map;
+	}
+
+	public void ResetStats () {
+		this.remainingHealth = getMaxHealth;
 	}
 
 	public void HighlightToAttack () {
@@ -73,6 +93,13 @@ public abstract class Unit
 		throw new System.NotImplementedException();
 	}
 
+	public void Damage (int damage) {
+		this.remainingHealth -= damage;
+		if (IsDead) {
+			Kill();
+		}
+	}
+
 	public bool CanMoveTo (IMapTile tile) {
 		throw new System.NotImplementedException();
 	}
@@ -93,12 +120,12 @@ public abstract class Unit
 		throw new System.NotImplementedException();
 	}
 
-	public void Attack (IUnit unit) {
-		throw new System.NotImplementedException();
-	}
-
 	public void Attack(IUnit unit, AttackType attack) {
-		throw new System.NotImplementedException();
+		if (attack == AttackType.Melee) {
+			MeleeAttack(unit);
+		} else if (attack == AttackType.Magic) {
+			MagicAttack(unit);
+		}
 	}
 
 	public void MeleeAttack(IUnit unit) {
@@ -110,6 +137,6 @@ public abstract class Unit
 	}
 
 	public void Kill () {
-		throw new System.NotImplementedException();
+		
 	}
 }

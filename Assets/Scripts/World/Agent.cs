@@ -8,6 +8,7 @@ using UnityEngine;
 using System.Collections;
 
 public abstract class Agent : MobileObjectBehaviour {
+	protected bool canBeAttacked;
 	Color canAttackColor = Color.red;
 	SpriteRenderer spriteR;
 
@@ -103,10 +104,12 @@ public abstract class Agent : MobileObjectBehaviour {
 
 	public void HighlightToAttack () {
 		spriteR.color = canAttackColor;
+		canBeAttacked = true;
 	}
 
 	public void Unhighlight () {
 		spriteR.color = Color.white;
+		canBeAttacked = false;
 	}
 		
 	protected bool move (int deltaX, int deltaY) {
@@ -141,6 +144,12 @@ public abstract class Agent : MobileObjectBehaviour {
 
 	public static int AgentTypeCount () {
 		return Enum.GetNames(typeof(AgentType)).Length;
+	}
+		
+	void OnMouseUp () {
+		if (canBeAttacked) {
+			
+		}
 	}
 }
 

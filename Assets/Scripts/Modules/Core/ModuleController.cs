@@ -60,6 +60,7 @@ public class ModuleController : SingletonController<ModuleController> {
 
 		TuningData tuningData = parser.ParseJSONFromResources<TuningData>("Tuning");
 		tuning.Init(tuningData);
+		stats.Init(tuning);
 
 		TileData tileData = parser.ParseJSONFromResources<TileData>("Tiles");
 		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
@@ -71,7 +72,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		cam.StartFollowing(unit.GetMainPlayer());
 		ui.Init(turn, unit);
 		movement.Init(turn);
-		combat.Init(unit, map, abilities, stats, tuning, gameEnd);
+		combat.Init(unit, map, abilities, stats, gameEnd);
 
 		AbilityData abilityData = parser.ParseJSONFromResources<AbilityData>("Abilities");
 		abilities.Init(abilityData);

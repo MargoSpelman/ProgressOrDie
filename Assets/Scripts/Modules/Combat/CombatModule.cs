@@ -12,7 +12,6 @@ public class CombatModule : Module, ICombatModule
 	MapModule map;
 	AbilitiesModule abilities;
 	StatModule stats;
-	TuningModule tuning;
 	GameEndModule gameEnd;
 
 	public void Init (
@@ -20,7 +19,6 @@ public class CombatModule : Module, ICombatModule
 		MapModule map, 
 		AbilitiesModule abilities,
 		StatModule stats,
-		TuningModule tuning,
 		GameEndModule gameEnd
 	)
 	{
@@ -28,10 +26,17 @@ public class CombatModule : Module, ICombatModule
 		this.map = map;
 		this.abilities = abilities;
 		this.stats = stats;
-		this.tuning = tuning;
 		this.gameEnd = gameEnd;
 	}
 
+	public void HandleAttackByPlayer (IUnit unit) {
+		PlayerCharacter player = units.GetMainPlayer().GetCharacter();
+		if(ableToPerformMeleeAttack(player, unit)) {
+				
+		} else {
+
+		}
+	}
 
 	public bool IsTargetInRange (IUnit attacker, IUnit target, AttackType attackType) {
 		switch (attackType) {
@@ -49,7 +54,7 @@ public class CombatModule : Module, ICombatModule
 	}
 
 	bool ableToPerformRangedAttack (IUnit attacker, IUnit target) {
-		return getRangeRequired(attacker, target) <= tuning.MaxRange;
+		return getRangeRequired(attacker, target) <= stats.MaxRange;
 	}
 
 	int getRangeRequired (IUnit attacker, IUnit target) {

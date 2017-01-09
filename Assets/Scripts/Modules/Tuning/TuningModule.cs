@@ -12,6 +12,12 @@ public class TuningModule : Module
 		}
 	}
 
+	public float BulkToHPRatio { 
+		get {
+			return data.BulkToHPRatio;
+		}
+	}
+
 	TuningData data;
 
 	public void Init (TuningData data) {
@@ -23,4 +29,5 @@ public class TuningModule : Module
 public class TuningData : SerializableData
 {
 	public int MaxRange;
+	public float BulkToHPRatio;
 }

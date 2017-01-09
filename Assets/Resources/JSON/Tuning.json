@@ -1,3 +1,4 @@
 {
-     "MaxRange" : 5
+     "MaxRange" : 5,
+     "BulkToHPRatio" : 10
 }
