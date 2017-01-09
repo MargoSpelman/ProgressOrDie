@@ -129,14 +129,17 @@ public abstract class Unit
 	}
 
 	public void MeleeAttack(IUnit unit) {
-		throw new System.NotImplementedException();
+		parentModule.MeleeAttack(this as IUnit, unit);
 	}
 
 	public void MagicAttack(IUnit unit) {
-		throw new System.NotImplementedException();
+		parentModule.MagicAttack(this as IUnit, unit);
 	}
 
 	public void Kill () {
-		
+		parentModule.HandleUnitDestroyed(this);		
+		if (HasAgentLink) {
+			UnityEngine.Object.Destroy(agent.gameObject);
+		}
 	}
 }

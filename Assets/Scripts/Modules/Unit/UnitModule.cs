@@ -47,8 +47,9 @@ public class UnitModule : Module
 		placeUnits(map, sprites, this.units.ToArray(), turns, movement, combat, stats, abilities);
 	}
 		
-	public void HandleUnitDestroed(Unit unit) {
-		// TODO: Implement this functionality
+	public void HandleUnitDestroyed(Unit unit) {
+		// TODO: Implement real functionality
+
 	}
 
 	void handleAgentMove (Agent agent) {
@@ -82,6 +83,14 @@ public class UnitModule : Module
 		} else if (turn == AgentType.Enemy) {
 			unhighlightEnemies();
 		}
+	}
+
+	public void MeleeAttack (IUnit attacker, IUnit target) {
+		combat.MeleeAttack(attacker, target);
+	}
+
+	public void MagicAttack (IUnit attacker, IUnit target) {
+		combat.MagicAttack(attacker, target);
 	}
 
 	public PlayerCharacterBehaviour GetMainPlayer () {

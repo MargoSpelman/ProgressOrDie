@@ -13,7 +13,6 @@ public class EnemyNPC : Unit, IEnemyNPC
 	public EnemyNPC(UnitModule parent, EnemyDescriptor descriptor, MapLocation location, Map map) :
 	base (parent, location, map) {
 		this.Descriptor = descriptor;
-
 	}
 
 	public override int GetSpeed () {
