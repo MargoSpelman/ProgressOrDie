@@ -14,26 +14,34 @@ public class PlayerCharacter : Unit, IPlayerCharacter
 
 	public PlayerCharacter(MapLocation location, Map map) : 
 	base (location, map) {
-
+		setStatsToDefault();
 	}
 
-	public int GetSpeed () {
+	void setStatsToDefault () {
+		speed = 9;
+		magic = 9;
+		constitution = 9;
+		strength = 9;
+		skill = 9;
+	}
+		
+	public override int GetSpeed () {
 		return speed;
 	}
 
-	public int GetMagic () {
+	public override int GetMagic () {
 		return magic;
 	}
 
-	public int GetConstitution () {
+	public override int GetConstitution () {
 		return constitution;
 	}
 
-	public int GetStrength () {
+	public override int GetStrength () {
 		return strength;
 	}
 
-	public int GetSkill () {
+	public override int GetSkill () {
 		return skill;
 	}
 }

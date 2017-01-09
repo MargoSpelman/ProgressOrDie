@@ -13,23 +13,23 @@ public class EnemyNPC : Unit, IEnemyNPC
 		this.Descriptor = descriptor;
 	}
 
-	public int GetSpeed () {
+	public override int GetSpeed () {
 		return Descriptor.Speed;
 	}
 
-	public int GetConstitution () {
+	public override int GetConstitution () {
 		return Descriptor.Constitution;
 	}
 
-	public int GetSkill () {
+	public override  int GetSkill () {
 		return Descriptor.Skill;
 	}
 
-	public int GetStrength () {
+	public override int GetStrength () {
 		return Descriptor.Strength;
 	}
 
-	public int GetMagic () {
+	public override int GetMagic () {
 		return Descriptor.Magic;
 	}
 		

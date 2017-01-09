@@ -47,7 +47,7 @@ public class Map
 		return GetTile(loc.X, loc.Y);
 	}
 
-	public void TravelTo (Agent agent, MapLocation loc) {
-		module.TravelTo(agent, loc);
+	public int TravelTo (Agent agent, MapLocation loc) {
+		return module.TravelTo(agent, loc);
 	}
 }

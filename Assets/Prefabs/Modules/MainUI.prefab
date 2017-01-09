@@ -237,6 +237,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224727433100221692}
+  - component: {fileID: 114195549862180102}
   m_Layer: 5
   m_Name: StatDisplay (0)
   m_TagString: Untagged
@@ -592,6 +593,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224184153719507886}
+  - component: {fileID: 114786970548100056}
   m_Layer: 5
   m_Name: StatDisplay (4)
   m_TagString: Untagged
@@ -970,6 +972,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224803744101105316}
+  - component: {fileID: 114034465622881466}
   m_Layer: 5
   m_Name: StatDisplay (2)
   m_TagString: Untagged
@@ -1232,6 +1235,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224453117960155672}
+  - component: {fileID: 114972774588580918}
   m_Layer: 5
   m_Name: StatDisplay (1)
   m_TagString: Untagged
@@ -1368,6 +1372,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224386860077430372}
+  - component: {fileID: 114005762722433524}
   m_Layer: 5
   m_Name: CritChance
   m_TagString: Untagged
@@ -1402,6 +1407,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224245826624866818}
+  - component: {fileID: 114327982029230614}
   m_Layer: 5
   m_Name: StatDisplay (3)
   m_TagString: Untagged
@@ -1513,6 +1519,20 @@ Transform:
   m_Father: {fileID: 224284212099144544}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114005762722433524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1880279849329042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5bd84637ede4560a2da921a2e27d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternateSprites: []
+  fill: {fileID: 114378241281843556}
+  barValue: {fileID: 0}
 --- !u!114 &114020986165864146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1573,6 +1593,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114034465622881466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620156288484054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5bd84637ede4560a2da921a2e27d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternateSprites: []
+  fill: {fileID: 114542860428201090}
+  barValue: {fileID: 114548934634328858}
 --- !u!114 &114042599848702612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2138,6 +2172,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -1, y: 1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114195549862180102
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172569350494658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5bd84637ede4560a2da921a2e27d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternateSprites: []
+  fill: {fileID: 114470612001137836}
+  barValue: {fileID: 114066083927977406}
 --- !u!114 &114198276349605560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2525,6 +2573,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -1, y: 1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114327982029230614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1903944486302908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5bd84637ede4560a2da921a2e27d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternateSprites: []
+  fill: {fileID: 114538884231848314}
+  barValue: {fileID: 114574503325249536}
 --- !u!114 &114334863736283444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4152,6 +4214,12 @@ MonoBehaviour:
   id: UI
   turnText: {fileID: 114876113417347828}
   endTurnButton: {fileID: 114923107174910834}
+  strengthBar: {fileID: 114034465622881466}
+  skillBar: {fileID: 114972774588580918}
+  magicBar: {fileID: 114327982029230614}
+  constitutionBar: {fileID: 114195549862180102}
+  speedBar: {fileID: 114786970548100056}
+  critBar: {fileID: 114005762722433524}
 --- !u!114 &114752761636488072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4221,6 +4289,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114786970548100056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325843586111686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5bd84637ede4560a2da921a2e27d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternateSprites: []
+  fill: {fileID: 114505196986710062}
+  barValue: {fileID: 114693748911476126}
 --- !u!114 &114788661693600952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4769,6 +4851,20 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114972774588580918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1759050719468894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f5bd84637ede4560a2da921a2e27d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alternateSprites: []
+  fill: {fileID: 114617021330823606}
+  barValue: {fileID: 114745222111542848}
 --- !u!114 &114995766472894204
 MonoBehaviour:
   m_ObjectHideFlags: 1

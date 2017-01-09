@@ -59,9 +59,9 @@ public class ModuleController : SingletonController<ModuleController> {
 		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
 		map.Init(tiles, tileData.Tiles, sprites);
 		string[,] units = parser.ParseCSVFromResources("Example/Units");
-		unit.Init(map, sprites, units, enemyData, movement, combat, stats, abilities);
+		unit.Init(map, sprites, units, enemyData, turn, movement, combat, stats, abilities);
 		cam.StartFollowing(unit.GetMainPlayer());
-		ui.Init(turn);
+		ui.Init(turn, unit);
 		movement.Init(turn);
 	}
 		

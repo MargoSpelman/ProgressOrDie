@@ -23,14 +23,14 @@ public class UnitModule : Module
 		SpriteModule sprites, 
 		string[,] units,
 		EnemyData enemyInfo,
+		TurnModule turns,
 		MovementModule movement,
 		CombatModule combat, 
 		StatModule stats,
 		AbilitiesModule abilities
 	){
-
 		createUnits(map.Map, units, enemyInfo);
-		placeUnits(map, sprites, this.units.ToArray(), movement, combat, stats, abilities);
+		placeUnits(map, sprites, this.units.ToArray(), turns, movement, combat, stats, abilities);
 
 	}
 
@@ -61,6 +61,7 @@ public class UnitModule : Module
 	void placeUnits(MapModule map, 
 		SpriteModule sprites, 
 		Unit[] units, 
+		TurnModule turns,
 		MovementModule movement, 
 		CombatModule combat,
 		StatModule stats,
@@ -79,7 +80,7 @@ public class UnitModule : Module
 				// Skip this unit: it's not supported
 				continue;
 			}
-			agent.Init(movement, combat, stats, abilities);
+			agent.Init(turns, movement, combat, stats, abilities);
 			map.PlaceUnit(agent);
 		}
 

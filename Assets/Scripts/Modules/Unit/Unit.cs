@@ -4,8 +4,15 @@
  * Usage: [no notes]
  */
 
-public class Unit
+public abstract class Unit
 {
+
+	public abstract int GetSpeed();
+	public abstract int GetMagic ();
+	public abstract int GetConstitution();
+	public abstract int GetStrength ();
+	public abstract int GetSkill ();
+
 	public Map Map{get; private set;}
 	public MapLocation StartingLocation {get; private set;}
 

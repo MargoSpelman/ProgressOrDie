@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class PlayerCharacterBehaviour : PlayerAgent 
 {	
+	MonoActionf onAgilityChange;
+
 	PlayerCharacter character;
 
 	public override AgentType GetAgentType()
@@ -21,6 +23,15 @@ public class PlayerCharacterBehaviour : PlayerAgent
 
 	public void SetCharacter (PlayerCharacter character) {
 		this.character = character;
+		ReplenishAgility(AgentType.Player);
+	}
+
+	public void SubscribeToAgilityChange (MonoActionf action) {
+		onAgilityChange += action;
+	}
+
+	public void UnsubscribeFromAgilityChange (MonoActionf action) {
+		onAgilityChange -= action;
 	}
 
 	void Update () {
@@ -33,6 +44,32 @@ public class PlayerCharacterBehaviour : PlayerAgent
 			MoveX(-1);
 		} else if (Input.GetKeyDown(KeyCode.D)) {
 			MoveX(1);
+		}
+	}
+
+	public override bool ReplenishAgility(AgentType type)
+	{
+		if (base.ReplenishAgility(type)) {
+			callAgilityChange(remainingAgilityForTurn);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	protected override bool trySpendAgility(int agilityPointsReq)
+	{
+		if (base.trySpendAgility(agilityPointsReq)) {
+			callAgilityChange(remainingAgilityForTurn);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	void callAgilityChange (float agility) {
+		if (onAgilityChange != null) {
+			onAgilityChange(agility);
 		}
 	}
 

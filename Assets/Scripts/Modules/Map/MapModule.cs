@@ -70,8 +70,9 @@ public class MapModule : Module, IMapModule
 		return Map.GetTile(x, y);
 	}
 
-	public void TravelTo (Agent agent, MapLocation loc) {
+	public int TravelTo (Agent agent, MapLocation loc) {
 		MapTile tile = getTileFromLoc(loc);
 		tile.PlaceUnit(agent);
+		return tile.TileType.Speed;
 	}
 }

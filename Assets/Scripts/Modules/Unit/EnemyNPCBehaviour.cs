@@ -18,5 +18,6 @@ public class EnemyNPCBehaviour : AIAgent
 
 	public void SetEnemy (EnemyNPC enemy) {
 		this.enemy = enemy;
+		ReplenishAgility(AgentType.Enemy);
 	}
 }

@@ -10,28 +10,45 @@ using System.Collections;
 public abstract class Agent : MobileObjectBehaviour {
 	SpriteRenderer spriteR;
 
+	protected int remainingAgilityForTurn;
+
+	protected TurnModule turns;
 	protected MovementModule movement;
 	protected CombatModule combat;
 	protected StatModule stats;
 	protected AbilitiesModule abilities;
+	MapLocation prevLoc;
 
 	public abstract AgentType GetAgentType();
 
 	public void Init (
+		TurnModule turns,
 		MovementModule movement,
 		CombatModule combat,
 		StatModule stats,
 		AbilitiesModule abilities
 	){
+		this.turns = turns;
 		this.movement = movement;
 		this.combat = combat;
 		this.stats = stats;
 		this.abilities = abilities;
+		turns.SubscribeToTurnSwitch(delegate(AgentType type)
+			{ReplenishAgility(type);});
 	}
 
 	public bool HasUnit {
 		get {
 			return GetUnit() != null;
+		}
+	}
+
+	public virtual bool ReplenishAgility (AgentType type) {
+		if (GetAgentType() == type) {
+			remainingAgilityForTurn = GetUnit().GetSpeed();
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -85,13 +102,29 @@ public abstract class Agent : MobileObjectBehaviour {
 
 	protected bool move (int deltaX, int deltaY) {
 		if (movement.CanMove(this)) {
+			prevLoc = currentLoc;
 			MapLocation newLoc = currentLoc.Translate(deltaX, deltaY);
 			if (map.CoordinateIsInBounds(newLoc)) {
-				map.TravelTo(this, newLoc);
-				return true;
+				int agilityCost = map.TravelTo(this, newLoc);
+				Debug.Log(agilityCost);
+				if (trySpendAgility(agilityCost)) {
+					return true;
+				} else {
+					map.TravelTo(this, prevLoc);
+					return false;
+				}
 			} else {
 				return false;
 			}
+		} else {
+			return false;
+		}
+	}
+
+	protected virtual bool trySpendAgility (int agilityPointsReq) {
+		if (remainingAgilityForTurn >= agilityPointsReq) {
+			remainingAgilityForTurn -= agilityPointsReq;
+			return true;
 		} else {
 			return false;
 		}
