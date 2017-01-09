@@ -8,8 +8,12 @@ using System.Collections;
 
 public abstract class MonoBehaviourExtended : MonoBehaviour, System.IComparable {
 	IEnumerator moveCoroutine;
+
 	public delegate void MonoAction();
+	public delegate void MonoActionStr(string eventName);
 	public delegate void MonoActionf(float value);
+	public delegate void AgentTypeAction(AgentType type);
+	public delegate void AgentAction(Agent agent);
 
 	void Awake () {
 		SetReferences();

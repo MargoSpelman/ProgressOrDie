@@ -93,4 +93,10 @@ public class WorldObjectBehaviour : MonoBehaviourExtended {
 			}
 		}
 	}
+
+
+	public Vector3 GetWorldPos () {
+		return transform.position;
+	}
+	
 }
