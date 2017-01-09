@@ -6,8 +6,11 @@
 
 public class Map 
 {
-	public Map(MapTile[,] tiles) {
+	MapModule module;
+
+	public Map(MapTile[,] tiles, MapModule mod) {
 		this.tiles = tiles;
+		this.module = mod;
 	}
 
 	public int Width {
@@ -24,6 +27,10 @@ public class Map
 
 	MapTile[,] tiles;
 
+	public bool CoordinateIsInBounds (MapLocation loc) {
+		return CoordinateIsInBounds(loc.X, loc.Y);
+	}
+
 	public bool CoordinateIsInBounds (int x, int y) {
 		return IntUtil.InRange(x, Width) && IntUtil.InRange(y, Height);
 	}
@@ -38,5 +45,9 @@ public class Map
 
 	public MapTile GetTile (MapLocation loc) {
 		return GetTile(loc.X, loc.Y);
+	}
+
+	public void TravelTo (Agent agent, MapLocation loc) {
+		module.TravelTo(agent, loc);
 	}
 }

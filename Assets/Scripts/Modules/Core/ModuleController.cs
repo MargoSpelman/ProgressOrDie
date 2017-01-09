@@ -32,7 +32,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
 		map.Init(tiles, tileData.Tiles, sprites);
 		string[,] units = parser.ParseCSVFromResources("Example/Units");
-		unit.Init(map, units, enemyData);
+		unit.Init(map, sprites, units, enemyData);
 	}
 		
 }

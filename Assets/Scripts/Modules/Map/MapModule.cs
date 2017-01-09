@@ -15,7 +15,7 @@ public class MapModule : Module, IMapModule
 	SpriteModule sprites;
 
 	public void Init(string[,] tiles, TileType[] tileTypes, SpriteModule sprites) {
-		this.Map = new Map(parseTilesToMap(tiles, tileTypes));
+		this.Map = new Map(parseTilesToMap(tiles, tileTypes), this);
 		this.sprites = sprites;
 		createMap(this.Map);
 	}
@@ -70,4 +70,8 @@ public class MapModule : Module, IMapModule
 		return Map.GetTile(x, y);
 	}
 
+	public void TravelTo (Agent agent, MapLocation loc) {
+		MapTile tile = getTileFromLoc(loc);
+		tile.PlaceUnit(agent);
+	}
 }

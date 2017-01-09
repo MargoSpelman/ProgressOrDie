@@ -6,30 +6,31 @@
 
 public class EnemyNPC : Unit, IEnemyNPC
 {
-	EnemyDescriptor descriptor;
+	public EnemyDescriptor Descriptor{get; private set;}
 
-	public EnemyNPC(EnemyDescriptor descriptor, MapLocation location) : base (location) {
-		this.descriptor = descriptor;
+	public EnemyNPC(EnemyDescriptor descriptor, MapLocation location, Map map) :
+	base (location, map) {
+		this.Descriptor = descriptor;
 	}
 
 	public int GetSpeed () {
-		return descriptor.Speed;
+		return Descriptor.Speed;
 	}
 
 	public int GetConstitution () {
-		return descriptor.Constitution;
+		return Descriptor.Constitution;
 	}
 
 	public int GetSkill () {
-		return descriptor.Skill;
+		return Descriptor.Skill;
 	}
 
 	public int GetStrength () {
-		return descriptor.Strength;
+		return Descriptor.Strength;
 	}
 
 	public int GetMagic () {
-		return descriptor.Magic;
+		return Descriptor.Magic;
 	}
 		
 }

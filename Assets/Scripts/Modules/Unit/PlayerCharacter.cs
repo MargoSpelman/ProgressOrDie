@@ -12,7 +12,8 @@ public class PlayerCharacter : Unit, IPlayerCharacter
 	int strength;
 	int skill;
 
-	public PlayerCharacter(MapLocation location) : base (location) {
+	public PlayerCharacter(MapLocation location, Map map) : 
+	base (location, map) {
 
 	}
 

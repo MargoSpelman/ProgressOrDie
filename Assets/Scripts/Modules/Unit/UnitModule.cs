@@ -17,9 +17,9 @@ public class UnitModule : Module
 	const string PLAYER_KEY = "P";
 	List<Unit> units = new List<Unit>();
 
-	public void Init(MapModule map, string[,] units, EnemyData enemyInfo) {
+	public void Init(MapModule map, SpriteModule sprites, string[,] units, EnemyData enemyInfo) {
 		createUnits(map.Map, units, enemyInfo);
-		placeUnits(map, this.units.ToArray());
+		placeUnits(map, sprites, this.units.ToArray());
 	}
 
 	void createUnits(Map map, string[,] units, EnemyData enemyInfo) {
@@ -30,11 +30,11 @@ public class UnitModule : Module
 				if (isUnit(tileUnit)) {
 					MapLocation startLocation = new MapLocation(x, y);
 					if(isPlayer(tileUnit)) {
-						this.units.Add(new PlayerCharacter(startLocation));
+						this.units.Add(new PlayerCharacter(startLocation, map));
 					} else {
 						EnemyDescriptor descr;
 						if(lookup.TryGetValue(tileUnit, out descr)) {
-							this.units.Add(new EnemyNPC(descr, startLocation));
+							this.units.Add(new EnemyNPC(descr, startLocation, map));
 						}
 					}
 				}
@@ -42,14 +42,14 @@ public class UnitModule : Module
 		}
 	}
 
-	void placeUnits(MapModule map, Unit[] units) {
+	void placeUnits(MapModule map, SpriteModule sprites, Unit[] units) {
 		for (int i = 0; i < units.Length; i++) {
 			Agent agent;
 			Unit unit = units[i];
 			if (unit is PlayerCharacter) {
 				agent = getPlayer(unit as PlayerCharacter);
 			} else if (unit is EnemyNPC) {
-				agent = getEnemy(unit as EnemyNPC);
+				agent = getEnemy(unit as EnemyNPC, sprites);
 			} else {
 				// Skip this unit: it's not supported
 				continue;
@@ -58,9 +58,10 @@ public class UnitModule : Module
 		}
 	}
 		
-	EnemyNPCBehaviour getEnemy (EnemyNPC data) {
+	EnemyNPCBehaviour getEnemy (EnemyNPC data, SpriteModule sprites) {
 		EnemyNPCBehaviour enemy = Instantiate(enemyPrefab, transform);	
 		enemy.SetEnemy(data);
+		enemy.SetSprite(sprites.GetEnemy(data.Descriptor));
 		return enemy;
 	}
 

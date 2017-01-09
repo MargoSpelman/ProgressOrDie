@@ -17,7 +17,7 @@ public class MapTileBehaviour : WorldObjectBehaviour
 	Agent containedAgent;
 	SpriteRenderer spriteR;
 	Map map;
-	MapTile tile;
+	public MapTile Tile{get; private set;}
 
 	protected override void SetReferences () {
 		base.SetReferences ();
@@ -26,7 +26,7 @@ public class MapTileBehaviour : WorldObjectBehaviour
 
 	public void SetTile (Map map, MapTile tile, Sprite sprite) {
 		this.map = map;
-		this.tile = tile;
+		this.Tile = tile;
 		tile.Link(this);
 		transform.position = getPosition();
 		spriteR.sprite = sprite;
@@ -34,10 +34,14 @@ public class MapTileBehaviour : WorldObjectBehaviour
 
 	public void PlaceUnit(Agent agent) {
 		this.containedAgent = agent;
-		agent.SetPos(transform.position);
+		agent.SetLocation(this);
 	}
-		
+
+	public Vector3 WorldPos () {
+		return transform.position;
+	}
+
 	Vector3 getPosition() {
-		return new Vector3((float) (tile.GetX() - map.Width / 2) / 4f, (float) (tile.GetY() - map.Height / 2) / 4f);
+		return new Vector3((float) (Tile.GetX() - map.Width / 2) / 4f, (float) (Tile.GetY() - map.Height / 2) / 4f);
 	}
 }

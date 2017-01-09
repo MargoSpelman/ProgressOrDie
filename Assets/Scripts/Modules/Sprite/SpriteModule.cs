@@ -13,19 +13,27 @@ public class SpriteModule : Module
 
 	Dictionary<string, Sprite> spriteLookup = new Dictionary<string, Sprite>();
 
+	public Sprite GetEnemy(EnemyDescriptor descriptor) {
+		string fileName = getEnemyFileName(descriptor);
+		return fetchSprite(fileName);
+	}
+
 	public Sprite GetTile(TileType type)
 	{
 		string fileName = getTileFileName(type);
-		// Debug.Log(fileName);
-		Sprite tileSprite;
-		if(spriteLookup.TryGetValue(fileName, out tileSprite))
+		return fetchSprite(fileName);
+	}
+
+	Sprite fetchSprite(string fileName) {
+		Sprite sprite;
+		if(spriteLookup.TryGetValue(fileName, out sprite))
 		{
-			return tileSprite;
+			return sprite;
 		}
 		else
 		{
-			tileSprite = loadSpriteFromResources(fileName);
-			return addSpriteToLookup(fileName, tileSprite);
+			sprite = loadSpriteFromResources(fileName);
+			return addSpriteToLookup(fileName, sprite);
 		}
 	}
 
@@ -43,5 +51,9 @@ public class SpriteModule : Module
 	string getTileFileName(TileType type)
 	{
 		return string.Format("{0}{1}", type.TileName, TILES_SUFFIX);
+	}
+
+	string getEnemyFileName(EnemyDescriptor descriptor) {
+		return descriptor.Key;
 	}
 }
