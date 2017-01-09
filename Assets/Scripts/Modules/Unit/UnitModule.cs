@@ -20,6 +20,7 @@ public class UnitModule : Module
 
 	const string PLAYER_KEY = "P";
 	List<Unit> units = new List<Unit>();
+	EnemyNPC[] highlightedEnemyTargets = new EnemyNPC[0];
 
 	public void Init(MapModule map, 
 		SpriteModule sprites, 
@@ -32,15 +33,42 @@ public class UnitModule : Module
 		AbilitiesModule abilities
 	){
 		this.combat = combat;
+		movement.SubscribeToAgentMove(handleAgentMove);
 		turns.SubscribeToTurnSwitch(handleTurnSwitch);
 		createUnits(map.Map, units, enemyInfo);
 		placeUnits(map, sprites, this.units.ToArray(), turns, movement, combat, stats, abilities);
+	}
+		
+	void handleAgentMove (Agent agent) {
+		if (agent is PlayerCharacterBehaviour) {
+			handlePlayerMove();
+		}
+	}
+		
+	void handlePlayerMove () {
+		unhighlightEnemies();
+		highlightEnemiesRange();
+	}
 
+	void highlightEnemiesRange () {
+		highlightedEnemyTargets = GetEnemiesInRange(GetMainPlayer().GetCharacter());
+		foreach (EnemyNPC enemy in highlightedEnemyTargets) {
+			enemy.HighlightToAttack();
+		}
+	}
+
+	void unhighlightEnemies () {
+		foreach  (EnemyNPC enemy in highlightedEnemyTargets) {
+			enemy.Unhighlight();
+		}
+		highlightedEnemyTargets = new EnemyNPC[0];
 	}
 
 	void handleTurnSwitch (AgentType turn) {
 		if (turn == AgentType.Player) {
-			EnemyNPC[] potentialTargets = GetEnemiesInRange(GetMainPlayer().GetCharacter());
+			highlightEnemiesRange();
+		} else if (turn == AgentType.Enemy) {
+			unhighlightEnemies();
 		}
 	}
 

@@ -27,6 +27,7 @@ public class PlayerCharacterBehaviour : PlayerAgent
 
 	public void SetCharacter (PlayerCharacter character) {
 		this.character = character;
+		this.character.LinkToAgent(this);
 		ReplenishAgility(AgentType.Player);
 	}
 

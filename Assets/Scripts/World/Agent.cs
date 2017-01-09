@@ -8,6 +8,7 @@ using UnityEngine;
 using System.Collections;
 
 public abstract class Agent : MobileObjectBehaviour {
+	Color canAttackColor = Color.red;
 	SpriteRenderer spriteR;
 
 	protected int remainingAgilityForTurn;
@@ -100,6 +101,14 @@ public abstract class Agent : MobileObjectBehaviour {
 		return move(0, dir);
 	}
 
+	public void HighlightToAttack () {
+		spriteR.color = canAttackColor;
+	}
+
+	public void Unhighlight () {
+		spriteR.color = Color.white;
+	}
+		
 	protected bool move (int deltaX, int deltaY) {
 		if (movement.CanMove(this)) {
 			prevLoc = currentLoc;
@@ -107,6 +116,7 @@ public abstract class Agent : MobileObjectBehaviour {
 			if (map.CoordinateIsInBounds(newLoc)) {
 				int agilityCost = map.TravelTo(this, newLoc);
 				if (trySpendAgility(agilityCost)) {
+					movement.Move(this);
 					return true;
 				} else {
 					map.TravelTo(this, prevLoc);

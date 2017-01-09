@@ -32,5 +32,4 @@ public class EnemyNPC : Unit, IEnemyNPC
 	public override int GetMagic () {
 		return Descriptor.Magic;
 	}
-		
 }

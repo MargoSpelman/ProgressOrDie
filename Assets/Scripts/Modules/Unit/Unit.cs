@@ -6,6 +6,21 @@
 
 public abstract class Unit
 {
+	public bool HasAgentLink {
+		get {
+			return agent != null;
+		}
+	}
+
+	protected Agent agent;
+
+	public void LinkToAgent (Agent agent) {
+		this.agent = agent;
+	}
+
+	public void UnlinkFromAge () {
+		this.agent = null;
+	}
 
 	public abstract int GetSpeed();
 	public abstract int GetMagic ();
@@ -31,6 +46,18 @@ public abstract class Unit
 	public Unit(MapLocation location, Map map) {
 		this.StartingLocation = location;
 		this.Map = map;
+	}
+
+	public void HighlightToAttack () {
+		if (HasAgentLink) {
+			agent.HighlightToAttack();
+		}
+	}
+
+	public void Unhighlight () {
+		if (HasAgentLink) {
+			agent.Unhighlight();
+		}
 	}
 
 	MapTile occupiedTile;
