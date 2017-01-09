@@ -1,0 +1,212 @@
+{
+  "Enemies" : [
+    {
+      "Key" : "SN",
+      "Types" : [
+        "Small",
+        "Nimble"
+      ],
+      "Speed" : 8,
+      "Magic" : 0,
+      "Strength" : 40,
+      "Skill" : 15,
+      "Constitution" : 90,
+      "Size" : [
+        1,
+        1
+      ],
+      "TurnPriority" : 1
+    },
+    {
+      "Key" : "SP",
+      "Types" : [
+        "Small",
+        "Powerful"
+      ],
+      "Speed" : 4,
+      "Magic" : 0,
+      "Strength" : 40,
+      "Skill" : 0,
+      "Constitution" : 270,
+      "Size" : [
+        1,
+        1
+      ],
+      "TurnPriority" : 2
+    },
+    {
+      "Key" : "SS",
+      "Types" : [
+        "Small",
+        "Strong"
+      ],
+      "Speed" : 6,
+      "Magic" : 0,
+      "Strength" : 100,
+      "Skill" : 0,
+      "Constitution" : 140,
+      "Size" : [
+        1,
+        1
+      ],
+      "TurnPriority" : 3
+    },
+    {
+      "Key" : "SA",
+      "Types" : [
+        "Small",
+        "Agile"
+      ],
+      "Speed" : 6,
+      "Magic" : 0,
+      "Strength" : 55,
+      "Skill" : 20,
+      "Constitution" : 30,
+      "Size" : [
+        1,
+        1
+      ],
+      "TurnPriority" : 4
+    },
+    {
+      "Key" : "SE",
+      "Types" : [
+        "Small",
+        "Enlightened"
+      ],
+      "Speed" : 4,
+      "Magic" : 90,
+      "Strength" : 0,
+      "Skill" : 0,
+      "Constitution" : 60,
+      "Size" : [
+        1,
+        1
+      ],
+      "TurnPriority" : 5
+    },
+    {
+      "Key" : "MN",
+      "Types" : [
+        "Medium",
+        "Nimble"
+      ],
+      "Speed" : 10,
+      "Magic" : 0,
+      "Strength" : 60,
+      "Skill" : 25,
+      "Constitution" : 100,
+      "Size" : [
+        2,
+        2
+      ],
+      "TurnPriority" : 6
+    },
+    {
+      "Key" : "MP",
+      "Types" : [
+        "Medium",
+        "Powerful"
+      ],
+      "Speed" : 6,
+      "Magic" : 0,
+      "Strength" : 60,
+      "Skill" : 0,
+      "Constitution" : 420,
+      "Size" : [
+        2,
+        2
+      ],
+      "TurnPriority" : 7
+    },
+    {
+      "Key" : "MS",
+      "Types" : [
+        "Medium",
+        "Strong"
+      ],
+      "Speed" : 8,
+      "Magic" : 0,
+      "Strength" : 200,
+      "Skill" : 0,
+      "Constitution" : 320,
+      "Size" : [
+        2,
+        2
+      ],
+      "TurnPriority" : 8
+    },
+    {
+      "Key" : "MA",
+      "Types" : [
+        "Medium",
+        "Agile"
+      ],
+      "Speed" : 8,
+      "Magic" : 0,
+      "Strength" : 105,
+      "Skill" : 30,
+      "Constitution" : 50,
+      "Size" : [
+        2,
+        2
+      ],
+      "TurnPriority" : 9
+    },
+    {
+      "Key" : "ME",
+      "Types" : [
+        "Medium",
+        "Enlightened"
+      ],
+      "Speed" : 6,
+      "Magic" : 120,
+      "Strength" : 0,
+      "Skill" : 0,
+      "Constitution" : 130,
+      "Size" : [
+        2,
+        2
+      ],
+      "TurnPriority" : 10
+    },
+    {
+      "Key" : "G",
+      "Types" : [
+        "GiantMonster"
+      ],
+      "Speed" : 10,
+      "Magic" : "",
+      "Strength" : 200,
+      "Skill" : 25,
+      "Constitution" : 750,
+      "Size" : [
+        4,
+        4
+      ],
+      "TurnPriority" : 11
+    }
+  ],
+  "Prefixes" : [
+    {
+      "Prefix" : "Nimble",
+      "Stat" : "Speed"
+    },
+    {
+      "Prefix" : "Strong",
+      "Stat" : "Strength"
+    },
+    {
+      "Prefix" : "Agile",
+      "Stat" : "Skill"
+    },
+    {
+      "Prefix" : "Enlightened",
+      "Stat" : "Magic"
+    },
+    {
+      "Prefix" : "Powerful",
+      "Stat" : "Constitution"
+    }
+  ]
+}
