@@ -24,6 +24,12 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	UnitModule unit;
 
+	[SerializeField]
+	UIModule ui;
+
+	[SerializeField]
+	CameraModule cam;
+
 	protected override void SetReferences ()
 	{
 		base.SetReferences ();
@@ -33,6 +39,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		map.Init(tiles, tileData.Tiles, sprites);
 		string[,] units = parser.ParseCSVFromResources("Example/Units");
 		unit.Init(map, sprites, units, enemyData);
+		cam.StartFollowing(unit.GetMainPlayer());
 	}
 		
 }

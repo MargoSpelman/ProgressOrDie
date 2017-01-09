@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class UnitModule : Module 
 {	
+	PlayerCharacterBehaviour mainPlayer;
+
 	[SerializeField]
 	PlayerCharacterBehaviour playerPrefab;
 	[SerializeField]
@@ -20,6 +22,10 @@ public class UnitModule : Module
 	public void Init(MapModule map, SpriteModule sprites, string[,] units, EnemyData enemyInfo) {
 		createUnits(map.Map, units, enemyInfo);
 		placeUnits(map, sprites, this.units.ToArray());
+	}
+
+	public PlayerCharacterBehaviour GetMainPlayer () {
+		return this.mainPlayer;
 	}
 
 	void createUnits(Map map, string[,] units, EnemyData enemyInfo) {
@@ -48,6 +54,7 @@ public class UnitModule : Module
 			Unit unit = units[i];
 			if (unit is PlayerCharacter) {
 				agent = getPlayer(unit as PlayerCharacter);
+				mainPlayer = agent as PlayerCharacterBehaviour;
 			} else if (unit is EnemyNPC) {
 				agent = getEnemy(unit as EnemyNPC, sprites);
 			} else {

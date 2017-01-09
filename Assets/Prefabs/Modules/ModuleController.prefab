@@ -57,3 +57,5 @@ MonoBehaviour:
   sprites: {fileID: 0}
   map: {fileID: 0}
   unit: {fileID: 0}
+  ui: {fileID: 0}
+  cam: {fileID: 0}
