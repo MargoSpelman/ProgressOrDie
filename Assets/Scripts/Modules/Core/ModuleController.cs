@@ -33,6 +33,24 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	TurnModule turn;
 
+	[SerializeField]
+	AbilitiesModule abilities;
+
+	[SerializeField]
+	CombatModule combat;
+
+	[SerializeField]
+	GameEndModule gameEnd;
+
+	[SerializeField]
+	MovementModule movement;
+
+	[SerializeField]
+	SaveModule save;
+
+	[SerializeField]
+	StatModule stats;
+
 	protected override void SetReferences ()
 	{
 		base.SetReferences ();
