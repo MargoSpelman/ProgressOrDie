@@ -3,6 +3,7 @@
  * Description: Super class for all agents operating in the game world
  */
 
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -75,4 +76,12 @@ public abstract class Agent : MobileObjectBehaviour {
 		}
 	}
 
+	public static int AgentTypeCount () {
+		return Enum.GetNames(typeof(AgentType)).Length;
+	}
+}
+
+public enum AgentType {
+	Player,
+	Enemy,
 }

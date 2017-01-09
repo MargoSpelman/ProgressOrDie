@@ -61,6 +61,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		string[,] units = parser.ParseCSVFromResources("Example/Units");
 		unit.Init(map, sprites, units, enemyData);
 		cam.StartFollowing(unit.GetMainPlayer());
+		ui.Init(turn);
 	}
 		
 }
