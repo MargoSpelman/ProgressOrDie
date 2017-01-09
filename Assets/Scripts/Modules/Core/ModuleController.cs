@@ -18,6 +18,9 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	SpriteModule sprites;
 
+	[SerializeField]
+	MapModule map;
+
 	EnemyData enemyData;
 	TileData tileData;
 
@@ -26,6 +29,8 @@ public class ModuleController : SingletonController<ModuleController> {
 		base.SetReferences ();
 		enemyData = parser.ParseJSONFromResources<EnemyData>("Enemies");
 		tileData = parser.ParseJSONFromResources<TileData>("Tiles");
+		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
+		map.Init(tiles, tileData.Tiles);
 	}
 		
 }

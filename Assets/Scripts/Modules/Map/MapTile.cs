@@ -6,6 +6,12 @@
 
 public class MapTile : WorldData, IMapTile
 {
+	public static MapTile Default {
+		get {
+			return new MapTile(0, 0, new TileType());
+		}
+	}
+
 	MapLocation location;
 	IUnit occupyingUnit;
 	TileType type;

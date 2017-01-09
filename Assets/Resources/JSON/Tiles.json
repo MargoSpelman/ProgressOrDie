@@ -1,7 +1,8 @@
 {
   "Tiles" : [
     {
-      "TilenName" : "ShortGrass",
+      "TileName" : "ShortGrass",
+      "Key" : "SG",
       "Speed" : 1,
       "Skill" : 0,
       "Constitution" : 0,
@@ -11,7 +12,8 @@
       "Passive" : "Vulnerable to Ranged"
     },
     {
-      "TilenName" : "TallGrass",
+      "TileName" : "TallGrass",
+      "Key" : "TG",
       "Speed" : 3,
       "Skill" : 0,
       "Constitution" : 0,
@@ -21,7 +23,8 @@
       "Passive" : "Strength Boost"
     },
     {
-      "TilenName" : "Rocky",
+      "TileName" : "Rocky",
+      "Key" : "R",
       "Speed" : 4,
       "Skill" : 0,
       "Constitution" : 0,
@@ -31,7 +34,8 @@
       "Passive" : "Skill Reduction"
     },
     {
-      "TilenName" : "Mud ",
+      "TileName" : "Mud ",
+      "Key" : "Mu",
       "Speed" : 3,
       "Skill" : 8,
       "Constitution" : 0,
@@ -41,7 +45,8 @@
       "Passive" : "Vulnerable to Melee"
     },
     {
-      "TilenName" : "Marsh",
+      "TileName" : "Marsh",
+      "Key" : "Ma",
       "Speed" : 4,
       "Skill" : 0,
       "Constitution" : 8,
@@ -51,7 +56,8 @@
       "Passive" : "Resistant to Melee"
     },
     {
-      "TilenName" : "Sand",
+      "TileName" : "Sand",
+      "Key" : "Sa",
       "Speed" : 4,
       "Skill" : 0,
       "Constitution" : 0,
@@ -61,7 +67,8 @@
       "Passive" : "N/A"
     },
     {
-      "TilenName" : "Shallow Water",
+      "TileName" : "Shallow Water",
+      "Key" : "SW",
       "Speed" : 5,
       "Skill" : 0,
       "Constitution" : 0,
@@ -71,7 +78,8 @@
       "Passive" : "Resistant to Ranged"
     },
     {
-      "TilenName" : "DeepWater,Calm",
+      "TileName" : "DeepWater,Calm",
+      "Key" : "DWC",
       "Speed" : 5,
       "Skill" : 0,
       "Constitution" : 0,
@@ -81,7 +89,8 @@
       "Passive" : "Obstructed"
     },
     {
-      "TilenName" : "DeepWater,Harsh",
+      "TileName" : "DeepWater,Harsh",
+      "Key" : "DWH",
       "Speed" : -1,
       "Skill" : "",
       "Constitution" : "",
@@ -91,7 +100,8 @@
       "Passive" : "N/A"
     },
     {
-      "TilenName" : "SlopeRock,Scramble",
+      "TileName" : "SlopeRock,Scramble",
+      "Key" : "SlRS",
       "Speed" : 3,
       "Skill" : 0,
       "Constitution" : 0,
@@ -101,7 +111,8 @@
       "Passive" : "Obstructed/ Ranged Boost"
     },
     {
-      "TilenName" : "SteepRock,Scramble",
+      "TileName" : "SteepRock,Scramble",
+      "Key" : "StRS",
       "Speed" : 5,
       "Skill" : 0,
       "Constitution" : 0,
@@ -111,7 +122,8 @@
       "Passive" : "Obstructed/ Skill Reduction"
     },
     {
-      "TilenName" : "SheerCliff",
+      "TileName" : "SheerCliff",
+      "Key" : "SC",
       "Speed" : -1,
       "Skill" : "",
       "Constitution" : "",
@@ -121,7 +133,8 @@
       "Passive" : "N/A"
     },
     {
-      "TilenName" : "ForestPath",
+      "TileName" : "ForestPath",
+      "Key" : "FP",
       "Speed" : 3,
       "Skill" : 0,
       "Constitution" : 0,
@@ -131,7 +144,8 @@
       "Passive" : "Resistant to Ranged"
     },
     {
-      "TilenName" : "Thicket",
+      "TileName" : "Thicket",
+      "Key" : "T",
       "Speed" : 4,
       "Skill" : 0,
       "Constitution" : 10,
@@ -141,7 +155,8 @@
       "Passive" : "Vulnerable to Ranged"
     },
     {
-      "TilenName" : "DeepForest",
+      "TileName" : "DeepForest",
+      "Key" : "DF",
       "Speed" : 4,
       "Skill" : 0,
       "Constitution" : 0,
@@ -151,7 +166,8 @@
       "Passive" : "Obstructed"
     },
     {
-      "TilenName" : "EnchantedForest",
+      "TileName" : "EnchantedForest",
+      "Key" : "EF",
       "Speed" : 4,
       "Skill" : 0,
       "Constitution" : 0,
@@ -161,7 +177,8 @@
       "Passive" : "Magic Boost"
     },
     {
-      "TilenName" : "EnchantedPond",
+      "TileName" : "EnchantedPond",
+      "Key" : "EP",
       "Speed" : 3,
       "Skill" : 0,
       "Constitution" : 0,
@@ -171,7 +188,8 @@
       "Passive" : "Magic Resistance"
     },
     {
-      "TilenName" : "EnchantedMeadow",
+      "TileName" : "EnchantedMeadow",
+      "Key" : "EM",
       "Speed" : 2,
       "Skill" : 0,
       "Constitution" : 0,
@@ -181,7 +199,8 @@
       "Passive" : "Magic Boost"
     },
     {
-      "TilenName" : "Ruined Village",
+      "TileName" : "Ruined Village",
+      "Key" : "RV",
       "Speed" : 3,
       "Skill" : 0,
       "Constitution" : 0,
@@ -191,7 +210,8 @@
       "Passive" : "Strength Boost"
     },
     {
-      "TilenName" : "MineShaft",
+      "TileName" : "MineShaft",
+      "Key" : "MS",
       "Speed" : 3,
       "Skill" : 6,
       "Constitution" : 0,
@@ -201,7 +221,8 @@
       "Passive" : "Obstructed"
     },
     {
-      "TilenName" : "Unholy Ground",
+      "TileName" : "Unholy Ground",
+      "Key" : "UG",
       "Speed" : 2,
       "Skill" : 0,
       "Constitution" : 0,
@@ -211,7 +232,8 @@
       "Passive" : "Player Impassable"
     },
     {
-      "TilenName" : "Concecrated Ground",
+      "TileName" : "Concecrated Ground",
+      "Key" : "CG",
       "Speed" : 2,
       "Skill" : 0,
       "Constitution" : 0,
@@ -219,6 +241,17 @@
       "Magic" : 0,
       "PlaceholderLabel" : "CGround 2s MI",
       "Passive" : "Monster Impassable"
+    },
+    {
+      "TileName" : "Pit",
+      "Key" : "P",
+      "Speed" : 0,
+      "Skill" : 0,
+      "Constitution" : 0,
+      "Strength" : 0,
+      "Magic" : 0,
+      "PlaceholderLabel" : "",
+      "Passive" : "Impassable"
     }
   ]
 }

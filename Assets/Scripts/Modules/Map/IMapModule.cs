@@ -9,6 +9,4 @@ public interface IMapModule {
 
 	IMapTile GetTile (int x, int y);
 
-	TerrainType GetTerrainTypeOfTile (int x, int y);
-
 }

@@ -14,6 +14,7 @@ public class TileData : SerializableData
 public class TileType : SerializableData
 {
 	public string TileName;
+	public string Key;
 	public int Speed;
 	public int Skill;
 	public int Constitution;

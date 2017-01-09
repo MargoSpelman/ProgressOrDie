@@ -17,11 +17,26 @@ public class ParserModule : Module, IParserModule {
 	}
 
 	public string[,] ParseCSVFromResources (string fileName) {
-		throw new System.NotImplementedException();
+		string csv = getTextAssetInResources(csvPath(fileName)).text;
+		return ParseCSV(csv);
 	}
 
 	public string[,] ParseCSV (string csv) {
-		throw new System.NotImplementedException();
+		string[,] result;
+		string[] allStringsByLine = csv.Split('\n');
+		string[][] allStringsByWord = new string[allStringsByLine.Length][];
+		for (int i = 0; i < allStringsByLine.Length; i++) {
+			allStringsByWord[i] = allStringsByLine[i].Split(',');
+		}
+		int width = allStringsByLine[0].Split(',').Length;
+		int height = allStringsByLine.Length;
+		result = new string[width, height];
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				result[x, y] = allStringsByWord[y][x].Trim();
+			}
+		}
+		return result;
 	}
 
 	TextAsset getTextAssetInResources (string path) {
