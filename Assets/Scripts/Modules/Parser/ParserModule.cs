@@ -16,6 +16,14 @@ public class ParserModule : Module, IParserModule {
 		return JsonUtility.FromJson<T>(json);
 	}
 
+	public string[,] ParseCSVFromResources (string fileName) {
+		throw new System.NotImplementedException();
+	}
+
+	public string[,] ParseCSV (string csv) {
+		throw new System.NotImplementedException();
+	}
+
 	TextAsset getTextAssetInResources (string path) {
 		return Resources.Load<TextAsset>(path);
 	}
