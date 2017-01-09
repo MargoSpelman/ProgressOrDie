@@ -137,6 +137,6 @@ public abstract class Unit
 	}
 
 	public void Kill () {
-		
+		parentModule.HandleUnitDestroed(this);		
 	}
 }
