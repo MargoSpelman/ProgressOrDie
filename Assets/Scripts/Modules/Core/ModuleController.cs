@@ -63,6 +63,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		cam.StartFollowing(unit.GetMainPlayer());
 		ui.Init(turn, unit);
 		movement.Init(turn);
+		combat.Init(unit, map, abilities, stats, gameEnd);
 	}
 		
 }
