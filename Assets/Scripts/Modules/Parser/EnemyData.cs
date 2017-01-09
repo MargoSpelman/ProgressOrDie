@@ -20,6 +20,7 @@ public class EnemyDescriptor : SerializableData
 	public int Strength;
 	public int Skill;
 	public int Constitution;
+	public int Magic;
 	public int[] Size;
 	public int TurnPriority;
 }

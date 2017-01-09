@@ -11,9 +11,8 @@ public interface IUnit {
 	int GetStrength();
 	int GetSkill();
 
-	IMapTile GetLocation();
+	MapLocation GetLocation();
 
-	TerrainType GetCurrentTerrain();
 	AttackType[] GetAvailableAttacks();
 
 	bool CanMoveTo (IMapTile tile);
