@@ -10,6 +10,25 @@ using System.Collections;
 public abstract class Agent : MobileObjectBehaviour {
 	SpriteRenderer spriteR;
 
+	protected MovementModule movement;
+	protected CombatModule combat;
+	protected StatModule stats;
+	protected AbilitiesModule abilities;
+
+	public abstract AgentType GetAgentType();
+
+	public void Init (
+		MovementModule movement,
+		CombatModule combat,
+		StatModule stats,
+		AbilitiesModule abilities
+	){
+		this.movement = movement;
+		this.combat = combat;
+		this.stats = stats;
+		this.abilities = abilities;
+	}
+
 	public bool HasUnit {
 		get {
 			return GetUnit() != null;
@@ -57,20 +76,22 @@ public abstract class Agent : MobileObjectBehaviour {
 	}
 		
 	public bool MoveX(int dir) { 
-		MapLocation newLoc = currentLoc.Translate(dir, 0);
-		if (map.CoordinateIsInBounds(newLoc)) {
-			map.TravelTo(this, newLoc);
-			return true;
-		} else {
-			return false;
-		}
+		return move(dir, 0);
 	}
 
 	public bool MoveY(int dir) {
-		MapLocation newLoc = currentLoc.Translate(0, dir);
-		if (map.CoordinateIsInBounds(newLoc)) {
-			map.TravelTo(this, newLoc);
-			return true;
+		return move(0, dir);
+	}
+
+	protected bool move (int deltaX, int deltaY) {
+		if (movement.CanMove(this)) {
+			MapLocation newLoc = currentLoc.Translate(deltaX, deltaY);
+			if (map.CoordinateIsInBounds(newLoc)) {
+				map.TravelTo(this, newLoc);
+				return true;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

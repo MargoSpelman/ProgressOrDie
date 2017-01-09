@@ -10,6 +10,11 @@ public class PlayerCharacterBehaviour : PlayerAgent
 {	
 	PlayerCharacter character;
 
+	public override AgentType GetAgentType()
+	{
+		return AgentType.Player;
+	}
+
 	public override Unit GetUnit() {
 		return character;
 	}

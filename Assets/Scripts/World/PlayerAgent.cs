@@ -1,5 +1,5 @@
 ﻿
-public class PlayerAgent : Agent
+public abstract class PlayerAgent : Agent
 {
 
 }

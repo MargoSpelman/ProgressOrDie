@@ -8,6 +8,10 @@ public class EnemyNPCBehaviour : AIAgent
 {	
 	EnemyNPC enemy;
 
+	public override AgentType GetAgentType()
+	{
+		return AgentType.Enemy;
+	}
 	public override Unit GetUnit() {
 		return enemy;
 	}

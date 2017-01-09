@@ -19,9 +19,19 @@ public class UnitModule : Module
 	const string PLAYER_KEY = "P";
 	List<Unit> units = new List<Unit>();
 
-	public void Init(MapModule map, SpriteModule sprites, string[,] units, EnemyData enemyInfo) {
+	public void Init(MapModule map, 
+		SpriteModule sprites, 
+		string[,] units,
+		EnemyData enemyInfo,
+		MovementModule movement,
+		CombatModule combat, 
+		StatModule stats,
+		AbilitiesModule abilities
+	){
+
 		createUnits(map.Map, units, enemyInfo);
-		placeUnits(map, sprites, this.units.ToArray());
+		placeUnits(map, sprites, this.units.ToArray(), movement, combat, stats, abilities);
+
 	}
 
 	public PlayerCharacterBehaviour GetMainPlayer () {
@@ -48,7 +58,15 @@ public class UnitModule : Module
 		}
 	}
 
-	void placeUnits(MapModule map, SpriteModule sprites, Unit[] units) {
+	void placeUnits(MapModule map, 
+		SpriteModule sprites, 
+		Unit[] units, 
+		MovementModule movement, 
+		CombatModule combat,
+		StatModule stats,
+		AbilitiesModule abilities
+	) {
+		
 		for (int i = 0; i < units.Length; i++) {
 			Agent agent;
 			Unit unit = units[i];
@@ -61,8 +79,10 @@ public class UnitModule : Module
 				// Skip this unit: it's not supported
 				continue;
 			}
+			agent.Init(movement, combat, stats, abilities);
 			map.PlaceUnit(agent);
 		}
+
 	}
 		
 	EnemyNPCBehaviour getEnemy (EnemyNPC data, SpriteModule sprites) {
