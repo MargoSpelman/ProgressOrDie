@@ -13,6 +13,18 @@ public abstract class Unit
 	public abstract int GetStrength ();
 	public abstract int GetSkill ();
 
+	public int X {
+		get {
+			return this.GetLocation().X;
+		}
+	}
+
+	public int Y {
+		get {
+			return this.GetLocation().Y;	
+		}
+	}
+
 	public Map Map{get; private set;}
 	public MapLocation StartingLocation {get; private set;}
 

@@ -12,7 +12,12 @@ public class EnemyNPCBehaviour : AIAgent
 	{
 		return AgentType.Enemy;
 	}
+
 	public override Unit GetUnit() {
+		return GetEnemy();
+	}
+
+	public EnemyNPC GetEnemy () {
 		return enemy;
 	}
 

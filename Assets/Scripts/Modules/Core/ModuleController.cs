@@ -51,9 +51,16 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	StatModule stats;
 
+	[SerializeField]
+	TuningModule tuning;
+
 	protected override void SetReferences ()
 	{
 		base.SetReferences ();
+
+		TuningData tuningData = parser.ParseJSONFromResources<TuningData>("Tuning");
+		tuning.Init(tuningData);
+
 		TileData tileData = parser.ParseJSONFromResources<TileData>("Tiles");
 		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
 		map.Init(tiles, tileData.Tiles, sprites);
@@ -64,7 +71,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		cam.StartFollowing(unit.GetMainPlayer());
 		ui.Init(turn, unit);
 		movement.Init(turn);
-		combat.Init(unit, map, abilities, stats, gameEnd);
+		combat.Init(unit, map, abilities, stats, tuning, gameEnd);
 
 		AbilityData abilityData = parser.ParseJSONFromResources<AbilityData>("Abilities");
 		abilities.Init(abilityData);

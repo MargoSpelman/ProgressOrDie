@@ -12,6 +12,8 @@ public interface IUnit {
 	int GetSkill();
 
 	MapLocation GetLocation();
+	int X {get;}
+	int Y {get;}
 
 	AttackType[] GetAvailableAttacks();
 

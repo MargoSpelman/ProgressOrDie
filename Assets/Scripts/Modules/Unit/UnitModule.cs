@@ -15,7 +15,9 @@ public class UnitModule : Module
 	PlayerCharacterBehaviour playerPrefab;
 	[SerializeField]
 	EnemyNPCBehaviour enemyPrefab;
-	
+
+	CombatModule combat;
+
 	const string PLAYER_KEY = "P";
 	List<Unit> units = new List<Unit>();
 
@@ -29,13 +31,34 @@ public class UnitModule : Module
 		StatModule stats,
 		AbilitiesModule abilities
 	){
+		this.combat = combat;
+		turns.SubscribeToTurnSwitch(handleTurnSwitch);
 		createUnits(map.Map, units, enemyInfo);
 		placeUnits(map, sprites, this.units.ToArray(), turns, movement, combat, stats, abilities);
 
 	}
 
+	void handleTurnSwitch (AgentType turn) {
+		if (turn == AgentType.Player) {
+			EnemyNPC[] potentialTargets = GetEnemiesInRange(GetMainPlayer().GetCharacter());
+		}
+	}
+
 	public PlayerCharacterBehaviour GetMainPlayer () {
 		return this.mainPlayer;
+	}
+
+	public EnemyNPC[] GetEnemiesInRange (PlayerCharacter player) {
+		List<EnemyNPC> inRange = new List<EnemyNPC>();
+		foreach (Unit unit in units) {
+			if (unit is EnemyNPC) {
+				EnemyNPC enemy = unit as EnemyNPC;
+				if (combat.IsTargetInRange(player, enemy, AttackType.Magic)) {
+					inRange.Add(enemy as EnemyNPC);
+				}
+			}
+		}
+		return inRange.ToArray();
 	}
 
 	void createUnits(Map map, string[,] units, EnemyData enemyInfo) {

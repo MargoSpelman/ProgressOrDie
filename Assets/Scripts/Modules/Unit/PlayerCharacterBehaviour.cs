@@ -18,6 +18,10 @@ public class PlayerCharacterBehaviour : PlayerAgent
 	}
 
 	public override Unit GetUnit() {
+		return GetCharacter();
+	}
+
+	public PlayerCharacter GetCharacter () {
 		return character;
 	}
 
