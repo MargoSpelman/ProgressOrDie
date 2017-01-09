@@ -52,3 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Map
+  mapTilePrefab: {fileID: 1367361050554780, guid: 159ceb42005e64dc98ec833f49e8e0da,
+    type: 2}

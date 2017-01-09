@@ -16,6 +16,7 @@ public class SpriteModule : Module
 	public Sprite GetTile(TileType type)
 	{
 		string fileName = getTileFileName(type);
+		// Debug.Log(fileName);
 		Sprite tileSprite;
 		if(spriteLookup.TryGetValue(fileName, out tileSprite))
 		{

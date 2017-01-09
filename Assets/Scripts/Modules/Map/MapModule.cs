@@ -9,10 +9,26 @@ using System.Collections.Generic;
 
 public class MapModule : Module, IMapModule 
 {	
+	[SerializeField]
+	GameObject mapTilePrefab;
 	Map map;
+	SpriteModule sprites;
 
-	public void Init(string[,] tiles, TileType[] tileTypes) {
+	public void Init(string[,] tiles, TileType[] tileTypes, SpriteModule sprites) {
 		this.map = new Map(parseTilesToMap(tiles, tileTypes));
+		this.sprites = sprites;
+		createMap(this.map);
+	}
+
+	void createMap(Map map) {
+		for(int x = 0; x < map.Width; x++) {
+			for (int y = 0; y < map.Height; y++) {
+				MapTile tileInfo = map.GetTile(x, y);
+				MapTileBehaviour tile = Instantiate(mapTilePrefab, transform).GetComponent<MapTileBehaviour>();
+				tile.SetTile(map, tileInfo, sprites.GetTile(tileInfo.TileType));
+				tile.name = tileInfo.TileType.TileName;
+			}
+		}
 	}
 
 	MapTile[,] parseTilesToMap(string[,] tileKeys, TileType[] tileTypes) {
@@ -40,7 +56,7 @@ public class MapModule : Module, IMapModule
 		return map.CoordinateIsInBounds(x, y);
 	}
 
-	public IMapTile GetTile (int x, int y) {
+	public MapTile GetTile (int x, int y) {
 		return map.GetTile(x, y);
 	}
 

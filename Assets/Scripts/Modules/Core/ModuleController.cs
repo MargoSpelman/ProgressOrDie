@@ -30,7 +30,7 @@ public class ModuleController : SingletonController<ModuleController> {
 		enemyData = parser.ParseJSONFromResources<EnemyData>("Enemies");
 		tileData = parser.ParseJSONFromResources<TileData>("Tiles");
 		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
-		map.Init(tiles, tileData.Tiles);
+		map.Init(tiles, tileData.Tiles, sprites);
 	}
 		
 }

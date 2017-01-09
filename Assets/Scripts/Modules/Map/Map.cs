@@ -10,13 +10,13 @@ public class Map
 		this.tiles = tiles;
 	}
 
-	int width {
+	public int Width {
 		get {
 			return tiles.GetLength(0);
 		}
 	}
 
-	int height {
+	public int Height {
 		get {
 			return tiles.GetLength(1);
 		}
@@ -25,10 +25,10 @@ public class Map
 	MapTile[,] tiles;
 
 	public bool CoordinateIsInBounds (int x, int y) {
-		return IntUtil.InRange(x, width) && IntUtil.InRange(y, height);
+		return IntUtil.InRange(x, Width) && IntUtil.InRange(y, Height);
 	}
 
-	public IMapTile GetTile (int x, int y) {
+	public MapTile GetTile (int x, int y) {
 		if (CoordinateIsInBounds(x, y)) {
 			return tiles[x, y];
 		} else {

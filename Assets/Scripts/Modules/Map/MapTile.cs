@@ -4,6 +4,7 @@
  * Usage: [no notes]
  */
 
+[System.Serializable]
 public class MapTile : WorldData, IMapTile
 {
 	public static MapTile Default {
@@ -12,9 +13,28 @@ public class MapTile : WorldData, IMapTile
 		}
 	}
 
+	public bool HasGOLink {
+		get {
+			return this.goLink != null;
+		}
+	}
+
+	public TileType TileType {
+		get {
+			return this.type;
+		}
+	}
+
+	[System.NonSerialized]
+	MapTileBehaviour goLink;
+
 	MapLocation location;
 	IUnit occupyingUnit;
 	TileType type;
+
+	public void Link (MapTileBehaviour goLink) {
+		this.goLink = goLink;
+	}
 
 	public MapTile(int x, int y, TileType type)
 	{
