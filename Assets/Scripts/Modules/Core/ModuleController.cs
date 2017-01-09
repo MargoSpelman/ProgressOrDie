@@ -30,6 +30,9 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	CameraModule cam;
 
+	[SerializeField]
+	TurnModule turn;
+
 	protected override void SetReferences ()
 	{
 		base.SetReferences ();
