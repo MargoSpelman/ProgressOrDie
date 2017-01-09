@@ -21,16 +21,18 @@ public class ModuleController : SingletonController<ModuleController> {
 	[SerializeField]
 	MapModule map;
 
-	EnemyData enemyData;
-	TileData tileData;
+	[SerializeField]
+	UnitModule unit;
 
 	protected override void SetReferences ()
 	{
 		base.SetReferences ();
-		enemyData = parser.ParseJSONFromResources<EnemyData>("Enemies");
-		tileData = parser.ParseJSONFromResources<TileData>("Tiles");
+		EnemyData enemyData = parser.ParseJSONFromResources<EnemyData>("Enemies");
+		TileData tileData = parser.ParseJSONFromResources<TileData>("Tiles");
 		string[,] tiles = parser.ParseCSVFromResources("Example/Tiles");
 		map.Init(tiles, tileData.Tiles, sprites);
+		string[,] units = parser.ParseCSVFromResources("Example/Units");
+		unit.Init(map, units, enemyData);
 	}
 		
 }

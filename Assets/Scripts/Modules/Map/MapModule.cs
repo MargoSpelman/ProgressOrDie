@@ -11,13 +11,13 @@ public class MapModule : Module, IMapModule
 {	
 	[SerializeField]
 	GameObject mapTilePrefab;
-	Map map;
+	public Map Map{get; private set;}
 	SpriteModule sprites;
 
 	public void Init(string[,] tiles, TileType[] tileTypes, SpriteModule sprites) {
-		this.map = new Map(parseTilesToMap(tiles, tileTypes));
+		this.Map = new Map(parseTilesToMap(tiles, tileTypes));
 		this.sprites = sprites;
-		createMap(this.map);
+		createMap(this.Map);
 	}
 
 	void createMap(Map map) {
@@ -44,6 +44,16 @@ public class MapModule : Module, IMapModule
 		return tiles;
 	}
 
+	MapTile getTileFromLoc(MapLocation location) {
+		return Map.GetTile(location);
+	}
+
+	public void PlaceUnit (Agent agent) {
+		MapLocation location = agent.GetStartLocation();
+		MapTile tile = getTileFromLoc(location);
+		tile.PlaceUnit(agent);
+	}
+
 	Dictionary<string, TileType> getTileLookup(TileType[] tileTypes) {
 		Dictionary<string, TileType> tileLookup = new Dictionary<string, TileType>();
 		foreach (TileType tile in tileTypes) {
@@ -53,11 +63,11 @@ public class MapModule : Module, IMapModule
 	}
 		
 	public bool CoordinateIsInBounds (int x, int y) {
-		return map.CoordinateIsInBounds(x, y);
+		return Map.CoordinateIsInBounds(x, y);
 	}
 
 	public MapTile GetTile (int x, int y) {
-		return map.GetTile(x, y);
+		return Map.GetTile(x, y);
 	}
 
 }

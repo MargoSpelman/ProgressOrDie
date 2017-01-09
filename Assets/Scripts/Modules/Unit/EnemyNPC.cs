@@ -8,6 +8,9 @@ public class EnemyNPC : Unit, IEnemyNPC
 {
 	EnemyDescriptor descriptor;
 
+	public EnemyNPC(EnemyDescriptor descriptor, MapLocation location) : base (location) {
+		this.descriptor = descriptor;
+	}
 
 	public int GetSpeed () {
 		return descriptor.Speed;

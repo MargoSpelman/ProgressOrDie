@@ -35,4 +35,8 @@ public class Map
 			return MapTile.Default;
 		}
 	}
+
+	public MapTile GetTile (MapLocation loc) {
+		return GetTile(loc.X, loc.Y);
+	}
 }

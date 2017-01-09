@@ -29,7 +29,7 @@ public class MapTile : WorldData, IMapTile
 	MapTileBehaviour goLink;
 
 	MapLocation location;
-	IUnit occupyingUnit;
+	Unit occupyingUnit;
 	TileType type;
 
 	public void Link (MapTileBehaviour goLink) {
@@ -67,9 +67,12 @@ public class MapTile : WorldData, IMapTile
 		return this.type;
 	}
 
-	public void PlaceUnit(IUnit unit)
+	public void PlaceUnit(Agent agent)
 	{
-		this.occupyingUnit = unit;
+		this.occupyingUnit = agent.GetUnit();
+		if (HasGOLink) {
+			goLink.PlaceUnit(agent);
+		}
 	}
 
 	public void RemoveUnit()

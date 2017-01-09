@@ -13,7 +13,7 @@ public interface IMapTile {
 
 	TileType GetTileType();
 
-	void PlaceUnit(IUnit unit);
+	void PlaceUnit(Agent unit);
 	void RemoveUnit();
 
 }

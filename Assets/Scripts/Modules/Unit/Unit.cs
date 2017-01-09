@@ -6,6 +6,12 @@
 
 public class Unit
 {
+	public MapLocation StartingLocation {get; private set;}
+
+	public Unit(MapLocation location) {
+		this.StartingLocation = location;
+	}
+
 	MapTile occupiedTile;
 	public void SetTile (MapTile tile) {
 		this.occupiedTile = tile;

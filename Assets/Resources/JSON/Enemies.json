@@ -1,7 +1,7 @@
 {
   "Enemies" : [
     {
-      "Names" : "SN",
+      "Key" : "SN",
       "Types" : [
         "Small",
         "Nimble"
@@ -18,7 +18,7 @@
       "TurnPriority" : 1
     },
     {
-      "Names" : "SP",
+      "Key" : "SP",
       "Types" : [
         "Small",
         "Powerful"
@@ -35,7 +35,7 @@
       "TurnPriority" : 2
     },
     {
-      "Names" : "SS",
+      "Key" : "SS",
       "Types" : [
         "Small",
         "Strong"
@@ -52,7 +52,7 @@
       "TurnPriority" : 3
     },
     {
-      "Names" : "SA",
+      "Key" : "SA",
       "Types" : [
         "Small",
         "Agile"
@@ -69,7 +69,7 @@
       "TurnPriority" : 4
     },
     {
-      "Names" : "SE",
+      "Key" : "SE",
       "Types" : [
         "Small",
         "Enlightened"
@@ -86,7 +86,7 @@
       "TurnPriority" : 5
     },
     {
-      "Names" : "MN",
+      "Key" : "MN",
       "Types" : [
         "Medium",
         "Nimble"
@@ -103,7 +103,7 @@
       "TurnPriority" : 6
     },
     {
-      "Names" : "MP",
+      "Key" : "MP",
       "Types" : [
         "Medium",
         "Powerful"
@@ -120,7 +120,7 @@
       "TurnPriority" : 7
     },
     {
-      "Names" : "MS",
+      "Key" : "MS",
       "Types" : [
         "Medium",
         "Strong"
@@ -137,7 +137,7 @@
       "TurnPriority" : 8
     },
     {
-      "Names" : "MA",
+      "Key" : "MA",
       "Types" : [
         "Medium",
         "Agile"
@@ -154,7 +154,7 @@
       "TurnPriority" : 9
     },
     {
-      "Names" : "ME",
+      "Key" : "ME",
       "Types" : [
         "Medium",
         "Enlightened"
@@ -171,7 +171,7 @@
       "TurnPriority" : 10
     },
     {
-      "Names" : "G",
+      "Key" : "G",
       "Types" : [
         "GiantMonster"
       ],

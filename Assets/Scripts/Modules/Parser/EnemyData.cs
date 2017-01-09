@@ -14,7 +14,7 @@ public class EnemyData : SerializableData
 [System.Serializable]
 public class EnemyDescriptor : SerializableData
 {
-	public string Names;
+	public string Key;
 	public string[] Types;
 	public int Speed;
 	public int Strength;
@@ -24,7 +24,6 @@ public class EnemyDescriptor : SerializableData
 	public int[] Size;
 	public int TurnPriority;
 }
-
 
 [System.Serializable]
 public class StatPrefix

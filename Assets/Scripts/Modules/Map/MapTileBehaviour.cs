@@ -8,6 +8,13 @@ using UnityEngine;
 
 public class MapTileBehaviour : WorldObjectBehaviour 
 {	
+	public bool HasAgent {
+		get {
+			return containedAgent != null;
+		}
+	}
+
+	Agent containedAgent;
 	SpriteRenderer spriteR;
 	Map map;
 	MapTile tile;
@@ -25,6 +32,11 @@ public class MapTileBehaviour : WorldObjectBehaviour
 		spriteR.sprite = sprite;
 	}
 
+	public void PlaceUnit(Agent agent) {
+		this.containedAgent = agent;
+		agent.SetPos(transform.position);
+	}
+		
 	Vector3 getPosition() {
 		return new Vector3((float) (tile.GetX() - map.Width / 2) / 4f, (float) (tile.GetY() - map.Height / 2) / 4f);
 	}

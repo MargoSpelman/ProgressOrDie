@@ -12,6 +12,10 @@ public class PlayerCharacter : Unit, IPlayerCharacter
 	int strength;
 	int skill;
 
+	public PlayerCharacter(MapLocation location) : base (location) {
+
+	}
+
 	public int GetSpeed () {
 		return speed;
 	}
