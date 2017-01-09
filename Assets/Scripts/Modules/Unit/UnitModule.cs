@@ -15,9 +15,19 @@ public class UnitModule : Module
 	PlayerCharacterBehaviour playerPrefab;
 	[SerializeField]
 	EnemyNPCBehaviour enemyPrefab;
-	
+
+	CombatModule combat;
+	StatModule stats;
+
 	const string PLAYER_KEY = "P";
 	List<Unit> units = new List<Unit>();
+	EnemyNPC[] highlightedEnemyTargets = new EnemyNPC[0];
+
+	public float BulkToHPRatio {
+		get {
+			return stats.BulkToHPRatio;
+		}
+	}
 
 	public void Init(MapModule map, 
 		SpriteModule sprites, 
@@ -29,13 +39,66 @@ public class UnitModule : Module
 		StatModule stats,
 		AbilitiesModule abilities
 	){
+		this.combat = combat;
+		this.stats = stats;
+		movement.SubscribeToAgentMove(handleAgentMove);
+		turns.SubscribeToTurnSwitch(handleTurnSwitch);
 		createUnits(map.Map, units, enemyInfo);
 		placeUnits(map, sprites, this.units.ToArray(), turns, movement, combat, stats, abilities);
+	}
+		
+	public void HandleUnitDestroed(Unit unit) {
+		// TODO: Implement this functionality
+	}
 
+	void handleAgentMove (Agent agent) {
+		if (agent is PlayerCharacterBehaviour) {
+			handlePlayerMove();
+		}
+	}
+		
+	void handlePlayerMove () {
+		unhighlightEnemies();
+		highlightEnemiesRange();
+	}
+
+	void highlightEnemiesRange () {
+		highlightedEnemyTargets = GetEnemiesInRange(GetMainPlayer().GetCharacter());
+		foreach (EnemyNPC enemy in highlightedEnemyTargets) {
+			enemy.HighlightToAttack();
+		}
+	}
+
+	void unhighlightEnemies () {
+		foreach  (EnemyNPC enemy in highlightedEnemyTargets) {
+			enemy.Unhighlight();
+		}
+		highlightedEnemyTargets = new EnemyNPC[0];
+	}
+
+	void handleTurnSwitch (AgentType turn) {
+		if (turn == AgentType.Player) {
+			highlightEnemiesRange();
+		} else if (turn == AgentType.Enemy) {
+			unhighlightEnemies();
+		}
 	}
 
 	public PlayerCharacterBehaviour GetMainPlayer () {
 		return this.mainPlayer;
+	}
+
+	public EnemyNPC[] GetEnemiesInRange (PlayerCharacter player) {
+		List<EnemyNPC> inRange = new List<EnemyNPC>();
+		foreach (Unit unit in units) {
+			if (unit is EnemyNPC) {
+				EnemyNPC enemy = unit as EnemyNPC;
+				if (combat.IsTargetInRange(player, enemy, AttackType.Magic)) {
+					inRange.Add(enemy as EnemyNPC);
+				}
+			}
+		}
+		return inRange.ToArray();
 	}
 
 	void createUnits(Map map, string[,] units, EnemyData enemyInfo) {
@@ -44,14 +107,19 @@ public class UnitModule : Module
 			for (int y = 0; y < map.Width; y++) {
 				string tileUnit = units[x, y];
 				if (isUnit(tileUnit)) {
+					Unit unit = null;
 					MapLocation startLocation = new MapLocation(x, y);
 					if(isPlayer(tileUnit)) {
-						this.units.Add(new PlayerCharacter(startLocation, map));
+						unit = new PlayerCharacter(this, startLocation, map);
 					} else {
 						EnemyDescriptor descr;
 						if(lookup.TryGetValue(tileUnit, out descr)) {
-							this.units.Add(new EnemyNPC(descr, startLocation, map));
+							unit = new EnemyNPC(this, descr, startLocation, map);
 						}
+					}
+					if (unit != null) {
+						unit.ResetStats();
+						this.units.Add(unit);
 					}
 				}
 			}

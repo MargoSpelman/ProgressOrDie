@@ -5,7 +5,7 @@
 
 public interface ICombatModule {
 
-	bool IsTargetInRange (IUnit attacker, IUnit target);
+	bool IsTargetInRange (IUnit attacker, IUnit target, AttackType attackType);
 
 	bool IsTargetAdjacent (IUnit attacker, IUnit target);
 
