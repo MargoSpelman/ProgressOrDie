@@ -8,7 +8,7 @@ using NotificationServices = UnityEngine.iOS.NotificationServices;
 using NotificationType = UnityEngine.iOS.NotificationType;
 #endif
 
-public class MixpanelExample : MonoBehaviour
+public class MixpanelExample2 : MonoBehaviour
 {
     public GUISkin skin;
     bool tokenSent;
