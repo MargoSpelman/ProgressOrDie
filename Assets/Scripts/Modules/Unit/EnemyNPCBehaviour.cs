@@ -12,12 +12,18 @@ public class EnemyNPCBehaviour : AIAgent
 	{
 		return AgentType.Enemy;
 	}
+
 	public override Unit GetUnit() {
+		return GetEnemy();
+	}
+
+	public EnemyNPC GetEnemy () {
 		return enemy;
 	}
 
 	public void SetEnemy (EnemyNPC enemy) {
 		this.enemy = enemy;
+		this.enemy.LinkToAgent(this);
 		ReplenishAgility(AgentType.Enemy);
 	}
 }
