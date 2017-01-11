@@ -18,11 +18,16 @@ public class PlayerCharacterBehaviour : PlayerAgent
 	}
 
 	public override Unit GetUnit() {
+		return GetCharacter();
+	}
+
+	public PlayerCharacter GetCharacter () {
 		return character;
 	}
 
 	public void SetCharacter (PlayerCharacter character) {
 		this.character = character;
+		this.character.LinkToAgent(this);
 		ReplenishAgility(AgentType.Player);
 	}
 
